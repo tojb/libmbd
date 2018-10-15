@@ -1,0 +1,267 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fortran C API &#8212; libmbd 0.4.0a4 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Libmbd — many-body dispersion library" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="fortran-c-api">
+<h1>Fortran C API<a class="headerlink" href="#fortran-c-api" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv39cmbd_calc">
+<span id="_CPPv29cmbd_calc"></span><span id="cmbd_calc"></span><span class="target" id="structcmbd__calc"></span><em class="property">struct </em><code class="descname">cmbd_calc</code><a class="headerlink" href="#_CPPv39cmbd_calc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv3N9cmbd_calc6n_freqE">
+<span id="_CPPv2N9cmbd_calc6n_freqE"></span><span id="cmbd_calc::n_freq__i"></span><span class="target" id="structcmbd__calc_1ad593d6d9847124e0cf9afcb1190dcc3a"></span>int <code class="descname">n_freq</code><a class="headerlink" href="#_CPPv3N9cmbd_calc6n_freqE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv3N9cmbd_calc10omega_gridE">
+<span id="_CPPv2N9cmbd_calc10omega_gridE"></span><span id="cmbd_calc::omega_grid__doubleP"></span><span class="target" id="structcmbd__calc_1a989f4ec7e9518c3f98f893ede236d53e"></span>double *<code class="descname">omega_grid</code><a class="headerlink" href="#_CPPv3N9cmbd_calc10omega_gridE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv3N9cmbd_calc12omega_grid_wE">
+<span id="_CPPv2N9cmbd_calc12omega_grid_wE"></span><span id="cmbd_calc::omega_grid_w__doubleP"></span><span class="target" id="structcmbd__calc_1a736093b1a480d3492098b091dde40198"></span>double *<code class="descname">omega_grid_w</code><a class="headerlink" href="#_CPPv3N9cmbd_calc12omega_grid_wE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="mbd_8h"></span><em>file</em> <code class="descname">mbd.h</code></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv314cmbd_init_calci">
+<span id="_CPPv214cmbd_init_calci"></span><span id="cmbd_init_calc__i"></span><span class="target" id="mbd_8h_1aa812dbf693400d5afafbc865cdb5bb93"></span><em class="property">struct</em> <a class="reference internal" href="#_CPPv39cmbd_calc" title="cmbd_calc">cmbd_calc</a> *<code class="descname">cmbd_init_calc</code><span class="sig-paren">(</span>int <em>n_freq</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv314cmbd_init_calci" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv317cmbd_destroy_calcP9cmbd_calc">
+<span id="_CPPv217cmbd_destroy_calcP9cmbd_calc"></span><span id="cmbd_destroy_calc__cmbd_calcP"></span><span class="target" id="mbd_8h_1af8a161eb6bf83bd68c99cf2b24da3623"></span>void <code class="descname">cmbd_destroy_calc</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv39cmbd_calc" title="cmbd_calc">cmbd_calc</a> *<em>calc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv317cmbd_destroy_calcP9cmbd_calc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv318cmbd_get_exceptionP9cmbd_calcPiAL50E_cAL150E_c">
+<span id="_CPPv218cmbd_get_exceptionP9cmbd_calcPiA50_cA150_c"></span><span id="cmbd_get_exception__cmbd_calcP.iP.cA.cA"></span><span class="target" id="mbd_8h_1ac65afd85cb21f8968205c41daca4a2cc"></span>void <code class="descname">cmbd_get_exception</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv39cmbd_calc" title="cmbd_calc">cmbd_calc</a> *<em>calc</em>, int *<em>code</em>, char <em>origin</em>[50], char <em>msg</em>[150]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_get_exceptionP9cmbd_calcPiAL50E_cAL150E_c" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv316cmbd_init_systemP9cmbd_calciPdPdPi">
+<span id="_CPPv216cmbd_init_systemP9cmbd_calciPdPdPi"></span><span id="cmbd_init_system__cmbd_calcP.i.doubleP.doubleP.iP"></span><span class="target" id="mbd_8h_1a49a9e5702690232cc78af146b81d1d82"></span><em class="property">struct</em> cmbd_system *<code class="descname">cmbd_init_system</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv39cmbd_calc" title="cmbd_calc">cmbd_calc</a> *<em>calc</em>, int <em>n_atoms</em>, double *<em>coords</em>, double *<em>lattice</em>, int *<em>k_grid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv316cmbd_init_systemP9cmbd_calciPdPdPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319cmbd_destroy_systemP11cmbd_system">
+<span id="_CPPv219cmbd_destroy_systemP11cmbd_system"></span><span id="cmbd_destroy_system__cmbd_systemP"></span><span class="target" id="mbd_8h_1afbdc565921d165c699120304ed793451"></span>void <code class="descname">cmbd_destroy_system</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_destroy_systemP11cmbd_system" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv317cmbd_init_dampingiPcPdPddd">
+<span id="_CPPv217cmbd_init_dampingiPcPdPddd"></span><span id="cmbd_init_damping__i.cP.doubleP.doubleP.double.double"></span><span class="target" id="mbd_8h_1a5ef095ea4a670e9ce75ddbd550a5be6c"></span><em class="property">struct</em> cmbd_damping *<code class="descname">cmbd_init_damping</code><span class="sig-paren">(</span>int <em>n_atoms</em>, char *<em>version</em>, double *<em>R_vdw</em>, double *<em>sigma</em>, double <em>beta</em>, double <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv317cmbd_init_dampingiPcPdPddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv320cmbd_destroy_dampingP12cmbd_damping">
+<span id="_CPPv220cmbd_destroy_dampingP12cmbd_damping"></span><span id="cmbd_destroy_damping__cmbd_dampingP"></span><span class="target" id="mbd_8h_1a99a808f9aa1a91129fd450f501f1110a"></span>void <code class="descname">cmbd_destroy_damping</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_damping *<em>damping</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv320cmbd_destroy_dampingP12cmbd_damping" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv314cmbd_ts_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
+<span id="_CPPv214cmbd_ts_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_ts_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a7e7b387f6fecb3cc772454c25d74a6f2"></span>double <code class="descname">cmbd_ts_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv314cmbd_ts_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv315cmbd_mbd_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
+<span id="_CPPv215cmbd_mbd_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_mbd_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a2d2eac99714ea9af238c3ad648be974f"></span>double <code class="descname">cmbd_mbd_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315cmbd_mbd_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv315cmbd_rpa_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
+<span id="_CPPv215cmbd_rpa_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_rpa_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a857b53f1af6ad633b8c13283dc081e48"></span>double <code class="descname">cmbd_rpa_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315cmbd_rpa_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv321cmbd_mbd_rsscs_energyP11cmbd_systemiPdPdP12cmbd_dampingPdPdPd">
+<span id="_CPPv221cmbd_mbd_rsscs_energyP11cmbd_systemiPdPdP12cmbd_dampingPdPdPd"></span><span id="cmbd_mbd_rsscs_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP.doubleP.doubleP"></span><span class="target" id="mbd_8h_1aeee54cc7536f67dfbe1db1c94f8060b1"></span>double <code class="descname">cmbd_mbd_rsscs_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em>, double *<em>eigvals</em>, double *<em>eigvecs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv321cmbd_mbd_rsscs_energyP11cmbd_systemiPdPdP12cmbd_dampingPdPdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319cmbd_mbd_scs_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
+<span id="_CPPv219cmbd_mbd_scs_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_mbd_scs_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1ab47dfa08a47328a8b1e057de98a69b91"></span>double <code class="descname">cmbd_mbd_scs_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_mbd_scs_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv318cmbd_dipole_matrixP11cmbd_systemP12cmbd_dampingPdPd">
+<span id="_CPPv218cmbd_dipole_matrixP11cmbd_systemP12cmbd_dampingPdPd"></span><span id="cmbd_dipole_matrix__cmbd_systemP.cmbd_dampingP.doubleP.doubleP"></span><span class="target" id="mbd_8h_1aa003779b3f7786484bf190144aa1f47e"></span>double <code class="descname">cmbd_dipole_matrix</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>k_point</em>, double *<em>dipmat</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_dipole_matrixP11cmbd_systemP12cmbd_dampingPdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv319cmbd_coulomb_energyP11cmbd_systemiPdPdPdPcPdddPd">
+<span id="_CPPv219cmbd_coulomb_energyP11cmbd_systemiPdPdPdPcPdddPd"></span><span id="cmbd_coulomb_energy__cmbd_systemP.i.doubleP.doubleP.doubleP.cP.doubleP.double.double.doubleP"></span><span class="target" id="mbd_8h_1aac71690a722a63c476fee9bc2943e711"></span>double <code class="descname">cmbd_coulomb_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>q</em>, double *<em>m</em>, double *<em>w_t</em>, char *<em>version</em>, double *<em>r_vdw</em>, double <em>beta</em>, double <em>a</em>, double *<em>C</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_coulomb_energyP11cmbd_systemiPdPdPdPcPdddPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv318cmbd_dipole_energyP11cmbd_systemiPdPdPdPcPdddPd">
+<span id="_CPPv218cmbd_dipole_energyP11cmbd_systemiPdPdPdPcPdddPd"></span><span id="cmbd_dipole_energy__cmbd_systemP.i.doubleP.doubleP.doubleP.cP.doubleP.double.double.doubleP"></span><span class="target" id="mbd_8h_1a214bab7322476df85a29c1acfa600b61"></span>double <code class="descname">cmbd_dipole_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>a0</em>, double *<em>w</em>, double *<em>w_t</em>, char *<em>version</em>, double *<em>r_vdw</em>, double <em>beta</em>, double <em>a</em>, double *<em>C</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_dipole_energyP11cmbd_systemiPdPdPdPcPdddPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv313cmbd_with_mpi">
+<span id="_CPPv213cmbd_with_mpi"></span><span id="cmbd_with_mpi___BoolC"></span><span class="target" id="mbd_8h_1a3089d9669f9f162782d2f2fe3c29b46f"></span><em class="property">const</em> _Bool <code class="descname">cmbd_with_mpi</code><a class="headerlink" href="#_CPPv313cmbd_with_mpi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv319cmbd_with_scalapack">
+<span id="_CPPv219cmbd_with_scalapack"></span><span id="cmbd_with_scalapack___BoolC"></span><span class="target" id="mbd_8h_1a222102e10c22e1b745f5033b89c107bc"></span><em class="property">const</em> _Bool <code class="descname">cmbd_with_scalapack</code><a class="headerlink" href="#_CPPv319cmbd_with_scalapack" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="dir">
+<dt>
+<span class="target" id="dir_68267d1309a1af8e8297ef4c3efbcdba"></span><em>dir</em> <code class="descname">/home/travis/build/azag0/libmbd/src</code></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">libmbd</a></h1>
+
+
+
+<p class="blurb">Many-body dispersion library</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=azag0&repo=libmbd&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a class="badge" href="https://travis-ci.org/azag0/libmbd">
+    <img
+        alt="https://secure.travis-ci.org/azag0/libmbd.svg?branch=master"
+        src="https://secure.travis-ci.org/azag0/libmbd.svg?branch=master"
+    />
+</a>
+</p>
+
+
+
+
+    
+
+<p>
+<a class="badge" href="https://codecov.io/github/azag0/libmbd">
+    <img
+    alt="https://codecov.io/github/azag0/libmbd/coverage.svg?branch=master"
+    src="https://codecov.io/github/azag0/libmbd/coverage.svg?branch=master"
+    />
+</a>
+</p>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fortran C API</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="doxygen/namespacembd.html">Fortran API</a></li>
+    
+    <li class="toctree-l1"><a href="doxygen/namespacembd__core.html">Core Fortran module</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Libmbd — many-body dispersion library</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018-2018, Jan Hermann.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/fortran-c-api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
