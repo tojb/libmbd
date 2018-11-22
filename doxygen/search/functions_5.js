@@ -14,6 +14,7 @@ var searchData=
   ['mbd_5fcalc_5fupdate_5flattice_5fvectors',['mbd_calc_update_lattice_vectors',['../namespacembd.html#ab4e29a6c8faf0e02a0141c4d99b326c6',1,'mbd']]],
   ['mbd_5fcalc_5fupdate_5fvdw_5fparams_5fcustom',['mbd_calc_update_vdw_params_custom',['../namespacembd.html#a972f3ba8f13ef57909330e441771a4ca',1,'mbd']]],
   ['mbd_5fcalc_5fupdate_5fvdw_5fparams_5ffrom_5fratios',['mbd_calc_update_vdw_params_from_ratios',['../namespacembd.html#aa524ece8582f9ece111726597f826c9f',1,'mbd']]],
+  ['mbd_5fcalc_5fupdate_5fvdw_5fparams_5fnl',['mbd_calc_update_vdw_params_nl',['../namespacembd.html#ad1e241038f54488405aac6b133283866',1,'mbd']]],
   ['mbd_5fenergy',['mbd_energy',['../namespacembd__core.html#afbbc299ee344cd7fa292880b81816f95',1,'mbd_core']]],
   ['mbd_5fenergy_5fsingle_5freal',['mbd_energy_single_real',['../namespacembd__core.html#af3936a7ea519c613c10b897c508af31b',1,'mbd_core']]],
   ['mbd_5fget_5ffree_5fvdw_5fparams',['mbd_get_free_vdw_params',['../namespacembd.html#aee51fbcc41fe6efd65a0092522a0e90a',1,'mbd']]],
