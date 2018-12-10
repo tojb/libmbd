@@ -1,22 +1,7 @@
 var searchData=
 [
-  ['make_5fg_5fgrid',['make_g_grid',['../namespacembd__core.html#a2289353b2bd0b3e2483932c86d90bfc6',1,'mbd_core']]],
-  ['make_5fk_5fgrid',['make_k_grid',['../namespacembd__core.html#a293af8d40adb33c4de5b69c3dbe575f5',1,'mbd_core']]],
-  ['mbd_5fcalc_5fdestroy',['mbd_calc_destroy',['../namespacembd.html#afd4e3d25540a75686f819d12e40a703a',1,'mbd']]],
-  ['mbd_5fcalc_5fget_5fenergy',['mbd_calc_get_energy',['../namespacembd.html#a5916d3901607b571277671b7d40a8a68',1,'mbd']]],
-  ['mbd_5fcalc_5fget_5fexception',['mbd_calc_get_exception',['../namespacembd.html#a3de100cd55d8021ae9a8c135d49bd6f8',1,'mbd']]],
-  ['mbd_5fcalc_5fget_5fgradients',['mbd_calc_get_gradients',['../namespacembd.html#a21fcfb403e20a82c6a1d0ef90b8b5c9d',1,'mbd']]],
-  ['mbd_5fcalc_5fget_5flattice_5fderivs',['mbd_calc_get_lattice_derivs',['../namespacembd.html#a3c9286955da2ec00dd66552aeffd635e',1,'mbd']]],
-  ['mbd_5fcalc_5fget_5fspectrum_5fmodes',['mbd_calc_get_spectrum_modes',['../namespacembd.html#a9fb2d56fb5adea54e35756a44c5e96fc',1,'mbd']]],
-  ['mbd_5fcalc_5finit',['mbd_calc_init',['../namespacembd.html#abe2b0eb9c21e14345bbfa5adc0c4674b',1,'mbd']]],
-  ['mbd_5fcalc_5fprint_5finfo',['mbd_calc_print_info',['../namespacembd.html#a1d41e79e7c68c9842cbaface4caa9073',1,'mbd']]],
-  ['mbd_5fcalc_5fupdate_5fcoords',['mbd_calc_update_coords',['../namespacembd.html#a02db57c129b2290dfcf4561426ff3e3a',1,'mbd']]],
-  ['mbd_5fcalc_5fupdate_5flattice_5fvectors',['mbd_calc_update_lattice_vectors',['../namespacembd.html#ab4e29a6c8faf0e02a0141c4d99b326c6',1,'mbd']]],
-  ['mbd_5fcalc_5fupdate_5fvdw_5fparams_5fcustom',['mbd_calc_update_vdw_params_custom',['../namespacembd.html#a972f3ba8f13ef57909330e441771a4ca',1,'mbd']]],
-  ['mbd_5fcalc_5fupdate_5fvdw_5fparams_5ffrom_5fratios',['mbd_calc_update_vdw_params_from_ratios',['../namespacembd.html#aa524ece8582f9ece111726597f826c9f',1,'mbd']]],
-  ['mbd_5fcalc_5fupdate_5fvdw_5fparams_5fnl',['mbd_calc_update_vdw_params_nl',['../namespacembd.html#ad1e241038f54488405aac6b133283866',1,'mbd']]],
-  ['mbd_5fenergy',['mbd_energy',['../namespacembd__core.html#afbbc299ee344cd7fa292880b81816f95',1,'mbd_core']]],
-  ['mbd_5fenergy_5fsingle_5freal',['mbd_energy_single_real',['../namespacembd__core.html#af3936a7ea519c613c10b897c508af31b',1,'mbd_core']]],
-  ['mbd_5fget_5ffree_5fvdw_5fparams',['mbd_get_free_vdw_params',['../namespacembd.html#aee51fbcc41fe6efd65a0092522a0e90a',1,'mbd']]],
-  ['mbd_5fscs_5fenergy',['mbd_scs_energy',['../namespacembd__core.html#af229ed86fcdb9b604b1725f7d41fbf17',1,'mbd_core']]]
+  ['f_5fc_5fstring',['f_c_string',['../namespacembd__c__api.html#ad7590e03aadaaab6e50089969eed8a63',1,'mbd_c_api']]],
+  ['f_5fstring',['f_string',['../namespacembd__c__api.html#af0834d80ee64b1d2f80228a3f01283e0',1,'mbd_c_api']]],
+  ['fill_5ftril',['fill_tril',['../namespacembd__lapack.html#afb9cbb62073dabfc6b54c1f71e4d2c0f',1,'mbd_lapack']]],
+  ['findval_5fint',['findval_int',['../interfacembd__utils_1_1findval.html#a925b7dafb6d3bd138c4c79c5f0757d00',1,'mbd_utils::findval::findval_int()'],['../namespacembd__utils.html#ab0600baf111ac1894e27f45bd357c116',1,'mbd_utils::findval_int()']]]
 ];

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['get_5fenergy',['get_energy',['../structmbd_1_1mbd__calculation.html#abb171bed32a59aff8af0c935352147e9',1,'mbd::mbd_calculation']]],
-  ['get_5fexception',['get_exception',['../structmbd_1_1mbd__calculation.html#ab2917f74170a1b18c6137c1f18da8fc3',1,'mbd::mbd_calculation']]],
-  ['get_5fgradients',['get_gradients',['../structmbd_1_1mbd__calculation.html#a1372301e981bdd8cc957522f3583eab9',1,'mbd::mbd_calculation']]],
-  ['get_5flattice_5fderivs',['get_lattice_derivs',['../structmbd_1_1mbd__calculation.html#aa03fd207ea522e0e00e0bbd7dc41e1c1',1,'mbd::mbd_calculation']]],
-  ['get_5fspectrum_5fmodes',['get_spectrum_modes',['../structmbd_1_1mbd__calculation.html#abfc7d9a784d234cb083df4e984ad740f',1,'mbd::mbd_calculation']]]
+  ['f_5fc_5fstring',['f_c_string',['../namespacembd__c__api.html#ad7590e03aadaaab6e50089969eed8a63',1,'mbd_c_api']]],
+  ['f_5fstring',['f_string',['../namespacembd__c__api.html#af0834d80ee64b1d2f80228a3f01283e0',1,'mbd_c_api']]],
+  ['fill_5ftril',['fill_tril',['../namespacembd__lapack.html#afb9cbb62073dabfc6b54c1f71e4d2c0f',1,'mbd_lapack']]],
+  ['findval',['findval',['../interfacembd__utils_1_1findval.html',1,'mbd_utils']]],
+  ['findval_5fint',['findval_int',['../interfacembd__utils_1_1findval.html#a925b7dafb6d3bd138c4c79c5f0757d00',1,'mbd_utils::findval::findval_int()'],['../namespacembd__utils.html#ab0600baf111ac1894e27f45bd357c116',1,'mbd_utils::findval_int()']]],
+  ['free_5fvalues',['free_values',['../structmbd_1_1mbd__input.html#aade361913c315d59c6c30455de63c924',1,'mbd::mbd_input::free_values()'],['../structmbd_1_1mbd__calc.html#a339cb4caaa135890ab447daf05f5e03f',1,'mbd::mbd_calc::free_values()']]]
 ];

@@ -54,6 +54,11 @@
 <span id="_CPPv2N9cmbd_calc12omega_grid_wE"></span><span id="cmbd_calc::omega_grid_w__doubleP"></span><span class="target" id="structcmbd__calc_1a736093b1a480d3492098b091dde40198"></span>double *<code class="descname">omega_grid_w</code><a class="headerlink" href="#_CPPv3N9cmbd_calc12omega_grid_wE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
+<dl class="member">
+<dt id="_CPPv3N9cmbd_calc5mutedE">
+<span id="_CPPv2N9cmbd_calc5mutedE"></span><span id="cmbd_calc::muted___BoolP"></span><span class="target" id="structcmbd__calc_1aef2911599c8ab91330ba1f98f8f4b9d3"></span>_Bool *<code class="descname">muted</code><a class="headerlink" href="#_CPPv3N9cmbd_calc5mutedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
 </div>
 </dd></dl>
 
@@ -78,13 +83,13 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv316cmbd_init_systemP9cmbd_calciPdPdPi">
-<span id="_CPPv216cmbd_init_systemP9cmbd_calciPdPdPi"></span><span id="cmbd_init_system__cmbd_calcP.i.doubleP.doubleP.iP"></span><span class="target" id="mbd_8h_1a49a9e5702690232cc78af146b81d1d82"></span><em class="property">struct</em> cmbd_system *<code class="descname">cmbd_init_system</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv39cmbd_calc" title="cmbd_calc">cmbd_calc</a> *<em>calc</em>, int <em>n_atoms</em>, double *<em>coords</em>, double *<em>lattice</em>, int *<em>k_grid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv316cmbd_init_systemP9cmbd_calciPdPdPi" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv314cmbd_init_geomP9cmbd_calciPdPdPi">
+<span id="_CPPv214cmbd_init_geomP9cmbd_calciPdPdPi"></span><span id="cmbd_init_geom__cmbd_calcP.i.doubleP.doubleP.iP"></span><span class="target" id="mbd_8h_1a07f8007a93d2222981d15bf73251d1a1"></span><em class="property">struct</em> cmbd_geom *<code class="descname">cmbd_init_geom</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#_CPPv39cmbd_calc" title="cmbd_calc">cmbd_calc</a> *<em>calc</em>, int <em>n_atoms</em>, double *<em>coords</em>, double *<em>lattice</em>, int *<em>k_grid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv314cmbd_init_geomP9cmbd_calciPdPdPi" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv319cmbd_destroy_systemP11cmbd_system">
-<span id="_CPPv219cmbd_destroy_systemP11cmbd_system"></span><span id="cmbd_destroy_system__cmbd_systemP"></span><span class="target" id="mbd_8h_1afbdc565921d165c699120304ed793451"></span>void <code class="descname">cmbd_destroy_system</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_destroy_systemP11cmbd_system" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv317cmbd_destroy_geomP9cmbd_geom">
+<span id="_CPPv217cmbd_destroy_geomP9cmbd_geom"></span><span id="cmbd_destroy_geom__cmbd_geomP"></span><span class="target" id="mbd_8h_1a910f1341dbeaf228d9663681b0212fc8"></span>void <code class="descname">cmbd_destroy_geom</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv317cmbd_destroy_geomP9cmbd_geom" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -98,43 +103,43 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv314cmbd_ts_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
-<span id="_CPPv214cmbd_ts_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_ts_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a7e7b387f6fecb3cc772454c25d74a6f2"></span>double <code class="descname">cmbd_ts_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv314cmbd_ts_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv314cmbd_ts_energyP9cmbd_geomiPdPdP12cmbd_dampingPd">
+<span id="_CPPv214cmbd_ts_energyP9cmbd_geomiPdPdP12cmbd_dampingPd"></span><span id="cmbd_ts_energy__cmbd_geomP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a2efc4f7fd617c9949b4d6263d8bb8686"></span>double <code class="descname">cmbd_ts_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv314cmbd_ts_energyP9cmbd_geomiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv315cmbd_mbd_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
-<span id="_CPPv215cmbd_mbd_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_mbd_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a2d2eac99714ea9af238c3ad648be974f"></span>double <code class="descname">cmbd_mbd_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315cmbd_mbd_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv315cmbd_mbd_energyP9cmbd_geomiPdPdP12cmbd_dampingPd">
+<span id="_CPPv215cmbd_mbd_energyP9cmbd_geomiPdPdP12cmbd_dampingPd"></span><span id="cmbd_mbd_energy__cmbd_geomP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a85e1d922dce6f0eff073be9f8b7fc59d"></span>double <code class="descname">cmbd_mbd_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315cmbd_mbd_energyP9cmbd_geomiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv315cmbd_rpa_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
-<span id="_CPPv215cmbd_rpa_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_rpa_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a857b53f1af6ad633b8c13283dc081e48"></span>double <code class="descname">cmbd_rpa_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315cmbd_rpa_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv315cmbd_rpa_energyP9cmbd_geomiPdPdP12cmbd_dampingPd">
+<span id="_CPPv215cmbd_rpa_energyP9cmbd_geomiPdPdP12cmbd_dampingPd"></span><span id="cmbd_rpa_energy__cmbd_geomP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1ab3f07e199e82857e7877010ac83fbef0"></span>double <code class="descname">cmbd_rpa_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315cmbd_rpa_energyP9cmbd_geomiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv321cmbd_mbd_rsscs_energyP11cmbd_systemiPdPdP12cmbd_dampingPdPdPd">
-<span id="_CPPv221cmbd_mbd_rsscs_energyP11cmbd_systemiPdPdP12cmbd_dampingPdPdPd"></span><span id="cmbd_mbd_rsscs_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP.doubleP.doubleP"></span><span class="target" id="mbd_8h_1aeee54cc7536f67dfbe1db1c94f8060b1"></span>double <code class="descname">cmbd_mbd_rsscs_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em>, double *<em>eigvals</em>, double *<em>eigvecs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv321cmbd_mbd_rsscs_energyP11cmbd_systemiPdPdP12cmbd_dampingPdPdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv321cmbd_mbd_rsscs_energyP9cmbd_geomiPdPdP12cmbd_dampingPdPdPd">
+<span id="_CPPv221cmbd_mbd_rsscs_energyP9cmbd_geomiPdPdP12cmbd_dampingPdPdPd"></span><span id="cmbd_mbd_rsscs_energy__cmbd_geomP.i.doubleP.doubleP.cmbd_dampingP.doubleP.doubleP.doubleP"></span><span class="target" id="mbd_8h_1af419e321048b6ed69cbd98b2b87f1470"></span>double <code class="descname">cmbd_mbd_rsscs_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em>, double *<em>eigvals</em>, double *<em>eigvecs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv321cmbd_mbd_rsscs_energyP9cmbd_geomiPdPdP12cmbd_dampingPdPdPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv319cmbd_mbd_scs_energyP11cmbd_systemiPdPdP12cmbd_dampingPd">
-<span id="_CPPv219cmbd_mbd_scs_energyP11cmbd_systemiPdPdP12cmbd_dampingPd"></span><span id="cmbd_mbd_scs_energy__cmbd_systemP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1ab47dfa08a47328a8b1e057de98a69b91"></span>double <code class="descname">cmbd_mbd_scs_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_mbd_scs_energyP11cmbd_systemiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv319cmbd_mbd_scs_energyP9cmbd_geomiPdPdP12cmbd_dampingPd">
+<span id="_CPPv219cmbd_mbd_scs_energyP9cmbd_geomiPdPdP12cmbd_dampingPd"></span><span id="cmbd_mbd_scs_energy__cmbd_geomP.i.doubleP.doubleP.cmbd_dampingP.doubleP"></span><span class="target" id="mbd_8h_1a386fdca2afa872275b4a49f67de110de"></span>double <code class="descname">cmbd_mbd_scs_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>alpha_0</em>, double *<em>C6</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_mbd_scs_energyP9cmbd_geomiPdPdP12cmbd_dampingPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv318cmbd_dipole_matrixP11cmbd_systemP12cmbd_dampingPdPd">
-<span id="_CPPv218cmbd_dipole_matrixP11cmbd_systemP12cmbd_dampingPdPd"></span><span id="cmbd_dipole_matrix__cmbd_systemP.cmbd_dampingP.doubleP.doubleP"></span><span class="target" id="mbd_8h_1aa003779b3f7786484bf190144aa1f47e"></span>double <code class="descname">cmbd_dipole_matrix</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>k_point</em>, double *<em>dipmat</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_dipole_matrixP11cmbd_systemP12cmbd_dampingPdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv318cmbd_dipole_matrixP9cmbd_geomP12cmbd_dampingPdPd">
+<span id="_CPPv218cmbd_dipole_matrixP9cmbd_geomP12cmbd_dampingPdPd"></span><span id="cmbd_dipole_matrix__cmbd_geomP.cmbd_dampingP.doubleP.doubleP"></span><span class="target" id="mbd_8h_1abfd52c4bb5d3d15c1f86112665698890"></span>double <code class="descname">cmbd_dipole_matrix</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, <em class="property">struct</em> cmbd_damping *<em>damping</em>, double *<em>k_point</em>, double *<em>dipmat</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_dipole_matrixP9cmbd_geomP12cmbd_dampingPdPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv319cmbd_coulomb_energyP11cmbd_systemiPdPdPdPcPdddPd">
-<span id="_CPPv219cmbd_coulomb_energyP11cmbd_systemiPdPdPdPcPdddPd"></span><span id="cmbd_coulomb_energy__cmbd_systemP.i.doubleP.doubleP.doubleP.cP.doubleP.double.double.doubleP"></span><span class="target" id="mbd_8h_1aac71690a722a63c476fee9bc2943e711"></span>double <code class="descname">cmbd_coulomb_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>q</em>, double *<em>m</em>, double *<em>w_t</em>, char *<em>version</em>, double *<em>r_vdw</em>, double <em>beta</em>, double <em>a</em>, double *<em>C</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_coulomb_energyP11cmbd_systemiPdPdPdPcPdddPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv319cmbd_coulomb_energyP9cmbd_geomiPdPdPdPcPdddPd">
+<span id="_CPPv219cmbd_coulomb_energyP9cmbd_geomiPdPdPdPcPdddPd"></span><span id="cmbd_coulomb_energy__cmbd_geomP.i.doubleP.doubleP.doubleP.cP.doubleP.double.double.doubleP"></span><span class="target" id="mbd_8h_1aba54fbc02b29ab7856c6f798839c01cd"></span>double <code class="descname">cmbd_coulomb_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>q</em>, double *<em>m</em>, double *<em>w_t</em>, char *<em>version</em>, double *<em>r_vdw</em>, double <em>beta</em>, double <em>a</em>, double *<em>C</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv319cmbd_coulomb_energyP9cmbd_geomiPdPdPdPcPdddPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="_CPPv318cmbd_dipole_energyP11cmbd_systemiPdPdPdPcPdddPd">
-<span id="_CPPv218cmbd_dipole_energyP11cmbd_systemiPdPdPdPcPdddPd"></span><span id="cmbd_dipole_energy__cmbd_systemP.i.doubleP.doubleP.doubleP.cP.doubleP.double.double.doubleP"></span><span class="target" id="mbd_8h_1a214bab7322476df85a29c1acfa600b61"></span>double <code class="descname">cmbd_dipole_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_system *<em>sys</em>, int <em>n_atoms</em>, double *<em>a0</em>, double *<em>w</em>, double *<em>w_t</em>, char *<em>version</em>, double *<em>r_vdw</em>, double <em>beta</em>, double <em>a</em>, double *<em>C</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_dipole_energyP11cmbd_systemiPdPdPdPcPdddPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv318cmbd_dipole_energyP9cmbd_geomiPdPdPdPcPdddPd">
+<span id="_CPPv218cmbd_dipole_energyP9cmbd_geomiPdPdPdPcPdddPd"></span><span id="cmbd_dipole_energy__cmbd_geomP.i.doubleP.doubleP.doubleP.cP.doubleP.double.double.doubleP"></span><span class="target" id="mbd_8h_1a610d49d0b277d275e7855efe1bdfff52"></span>double <code class="descname">cmbd_dipole_energy</code><span class="sig-paren">(</span><em class="property">struct</em> cmbd_geom *<em>geom</em>, int <em>n_atoms</em>, double *<em>a0</em>, double *<em>w</em>, double *<em>w_t</em>, char *<em>version</em>, double *<em>r_vdw</em>, double <em>beta</em>, double <em>a</em>, double *<em>C</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv318cmbd_dipole_energyP9cmbd_geomiPdPdPdPcPdddPd" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>

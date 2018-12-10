@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_5fnegative_5feigvals',['zero_negative_eigvals',['../structmbd_1_1mbd__input.html#a9a9c2c0e2e2133be74aa477c957e3f46',1,'mbd::mbd_input']]]
+  ['quadrature',['quadrature',['../namespacembd__coulomb.html#afb0752d40e0a2198a1170e94ea03e3f0',1,'mbd_coulomb']]]
 ];

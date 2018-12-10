@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmbd_1_1mbd__input.html">mbd_input</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,10 +128,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a9fb2d56fb5adea54e35756a44c5e96fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3de100cd55d8021ae9a8c135d49bd6f8"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembd.html#a3de100cd55d8021ae9a8c135d49bd6f8">mbd_calc_get_exception</a> (this, code, origin, msg)</td></tr>
 <tr class="separator:a3de100cd55d8021ae9a8c135d49bd6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d41e79e7c68c9842cbaface4caa9073"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembd.html#a1d41e79e7c68c9842cbaface4caa9073">mbd_calc_print_info</a> (this, info)</td></tr>
-<tr class="separator:a1d41e79e7c68c9842cbaface4caa9073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee51fbcc41fe6efd65a0092522a0e90a"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(3, size(atom_types)), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacembd.html#aee51fbcc41fe6efd65a0092522a0e90a">mbd_get_free_vdw_params</a> (atom_types, table_type)</td></tr>
-<tr class="separator:aee51fbcc41fe6efd65a0092522a0e90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a class="anchor" id="afd4e3d25540a75686f819d12e40a703a"></a>
@@ -144,7 +140,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_destroy </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout), target&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout), target&#160;</td>
           <td class="paramname"><em>this</em></td><td>)</td>
           <td></td>
         </tr>
@@ -168,7 +164,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_get_energy </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -202,7 +198,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_get_exception </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -248,7 +244,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_get_gradients </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(in)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(in)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -282,7 +278,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_get_lattice_derivs </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(in)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(in)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -316,7 +312,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_get_spectrum_modes </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -356,7 +352,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_init </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout), target&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout), target&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -364,40 +360,6 @@ Functions/Subroutines</h2></td></tr>
           <td></td>
           <td class="paramtype">type(<a class="el" href="structmbd_1_1mbd__input.html">mbd_input</a>), intent(in)&#160;</td>
           <td class="paramname"><em>input</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1d41e79e7c68c9842cbaface4caa9073"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine mbd::mbd_calc_print_info </td>
-          <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>this</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">procedure(printer)&#160;</td>
-          <td class="paramname"><em>info</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -424,7 +386,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_update_coords </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -458,7 +420,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_update_lattice_vectors </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -492,7 +454,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_update_vdw_params_custom </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -538,7 +500,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_update_vdw_params_from_ratios </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -572,7 +534,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine mbd::mbd_calc_update_vdw_params_nl </td>
           <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calculation.html">mbd_calculation</a>), intent(inout)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmbd_1_1mbd__calc.html">mbd_calc</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
         </tr>
         <tr>
@@ -602,36 +564,10 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aee51fbcc41fe6efd65a0092522a0e90a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(dp) function, dimension(3, size(atom_types)), public mbd::mbd_get_free_vdw_params </td>
-          <td>(</td>
-          <td class="paramtype">character(len=*), dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>atom_types</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>table_type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 10 2018 14:21:57 for libmbd by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

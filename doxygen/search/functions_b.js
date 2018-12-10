@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['update_5fcoords',['update_coords',['../structmbd_1_1mbd__calculation.html#ae736ba4da3c6ef9efd7f5c6e502e45a2',1,'mbd::mbd_calculation']]],
-  ['update_5flattice_5fvectors',['update_lattice_vectors',['../structmbd_1_1mbd__calculation.html#aead0a90bd6c61a01eba912862da26229',1,'mbd::mbd_calculation']]],
-  ['update_5fvdw_5fparams_5fcustom',['update_vdw_params_custom',['../structmbd_1_1mbd__calculation.html#add01cd1425a13423cf5b8b88c83a46a0',1,'mbd::mbd_calculation']]],
-  ['update_5fvdw_5fparams_5ffrom_5fratios',['update_vdw_params_from_ratios',['../structmbd_1_1mbd__calculation.html#a6e6b95add9ea5efe189082dc947226a5',1,'mbd::mbd_calculation']]],
-  ['update_5fvdw_5fparams_5fnl',['update_vdw_params_nl',['../structmbd_1_1mbd__calculation.html#aeede05e7308883b9f77303d80b5a10be',1,'mbd::mbd_calculation']]]
+  ['null_5fprinter',['null_printer',['../namespacembd__utils.html#a69dc3c180be1cdeed69ddb675e0d5b12',1,'mbd_utils']]]
 ];

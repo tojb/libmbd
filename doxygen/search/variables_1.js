@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['c6',['c6',['../structmbd_1_1mbd__calculation.html#ae040d423ca337f8e207f59e23600e8d1',1,'mbd::mbd_calculation']]],
-  ['calc',['calc',['../structmbd_1_1mbd__calculation.html#a5cd327a73cb52fe23c609a5fb0751a27',1,'mbd::mbd_calculation']]],
-  ['calculate_5fforces',['calculate_forces',['../structmbd_1_1mbd__input.html#a637e9da7ebb60a8332bf71f3f234ebe7',1,'mbd::mbd_input']]],
-  ['calculate_5fspectrum',['calculate_spectrum',['../structmbd_1_1mbd__input.html#a84120d854f42eb8bf3b86f7e1e39a4d5',1,'mbd::mbd_input']]],
-  ['comm',['comm',['../structmbd_1_1mbd__input.html#a5f368bdd6b83388ea1c90e7db6758b9d',1,'mbd::mbd_input']]],
-  ['coords',['coords',['../structmbd_1_1mbd__input.html#aa8cac1192cb02138ce45d31ac4cf00d7',1,'mbd::mbd_input']]]
+  ['beta',['beta',['../structmbd__damping_1_1damping__t.html#abf393a68ef6025e86b988190a18a65a1',1,'mbd_damping::damping_t']]],
+  ['bind',['bind',['../namespacembd__c__api.html#a27366fc5d592887079c0148195975479',1,'mbd_c_api']]],
+  ['blacs_5fget',['blacs_get',['../namespacembd__blacs.html#a7e1ca340e983a96831b1bb0e210f1c70',1,'mbd_blacs']]],
+  ['blacs_5fgridexit',['blacs_gridexit',['../namespacembd__blacs.html#a29b97556fc9476a17b950c791f1b1385',1,'mbd_blacs']]],
+  ['blacs_5fgridinfo',['blacs_gridinfo',['../namespacembd__blacs.html#ac0c80519b79de130896c17bc2b9a23fe',1,'mbd_blacs']]],
+  ['blacs_5fgridinit',['blacs_gridinit',['../namespacembd__blacs.html#ae76ab2c17ec5e3cbbf2c678566a3e242',1,'mbd_blacs']]],
+  ['blacs_5fpinfo',['blacs_pinfo',['../namespacembd__blacs.html#ab7702a427ad92dcfb83c1e57fcb9b35b',1,'mbd_blacs']]]
 ];
