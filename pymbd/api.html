@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>API &#8212; libmbd 0.4.0a9 documentation</title>
+    <title>API &#8212; libmbd 0.4.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,6 +14,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Welcome to Pymbd" href="index.html" />
@@ -35,6 +36,86 @@
             
   <div class="section" id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pymbd">
+<span id="pure-python-implementation"></span><h2>Pure-Python implementation<a class="headerlink" href="#module-pymbd" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pymbd.mbd_energy">
+<code class="descclassname">pymbd.</code><code class="descname">mbd_energy</code><span class="sig-paren">(</span><em>coords</em>, <em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>beta</em>, <em>lattice=None</em>, <em>k_grid=None</em>, <em>nfreq=15</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/pymbd.html#mbd_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.mbd_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an MBD energy.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymbd.mbd_energy_species">
+<code class="descclassname">pymbd.</code><code class="descname">mbd_energy_species</code><span class="sig-paren">(</span><em>coords</em>, <em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/pymbd.html#mbd_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.mbd_energy_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an MBD energy from atom types and Hirshfed-volume ratios.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pymbd.screening">
+<code class="descclassname">pymbd.</code><code class="descname">screening</code><span class="sig-paren">(</span><em>coords</em>, <em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>beta</em>, <em>lattice=None</em>, <em>nfreq=15</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/pymbd.html#screening"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.screening" title="Permalink to this definition">¶</a></dt>
+<dd><p>Screen atomic polarizabilities.</p>
+<p>Returns static polarizabilities, <span class="math notranslate nohighlight">\(C_6\)</span> coefficients, and
+<span class="math notranslate nohighlight">\(R_\mathrm{vdw}\)</span> coefficients.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pymbd.ang">
+<code class="descclassname">pymbd.</code><code class="descname">ang</code><em class="property"> = 1.8897259885789233</em><a class="headerlink" href="#pymbd.ang" title="Permalink to this definition">¶</a></dt>
+<dd><p>float(x) -&gt; floating point number</p>
+<p>Convert a string or number to a floating point number, if possible.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymbd.fortran">
+<span id="fortran-bindings"></span><h2>Fortran bindings<a class="headerlink" href="#module-pymbd.fortran" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pymbd.fortran.MBDCalc">
+<em class="property">class </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDCalc</code><span class="sig-paren">(</span><em>n_freq=15</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an initialized Libmbd Fortran library.</p>
+<dl class="method">
+<dt id="pymbd.fortran.MBDCalc.mbd_energy">
+<code class="descname">mbd_energy</code><span class="sig-paren">(</span><em>coords</em>, <em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>beta</em>, <em>lattice=None</em>, <em>k_grid=None</em>, <em>a=6.0</em>, <em>func='mbd_rsscs_energy'</em>, <em>force=False</em>, <em>damping='fermi</em>, <em>dip'</em>, <em>spectrum=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.mbd_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.mbd_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an MBD energy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymbd.fortran.MBDCalc.mbd_energy_species">
+<code class="descname">mbd_energy_species</code><span class="sig-paren">(</span><em>coords</em>, <em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.mbd_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.mbd_energy_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an MBD energy from atom types and Hirshfed-volume ratios.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymbd.fortran.MBDCalc.ts_energy">
+<code class="descname">ts_energy</code><span class="sig-paren">(</span><em>coords</em>, <em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>sR</em>, <em>lattice=None</em>, <em>d=20.0</em>, <em>damping='fermi'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.ts_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.ts_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a TS energy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymbd.fortran.MBDCalc.ts_energy_species">
+<code class="descname">ts_energy_species</code><span class="sig-paren">(</span><em>coords</em>, <em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.ts_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.ts_energy_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a TS energy from atom types and Hirshfed-volume ratios.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="pymbd.fortran.MBDFortranException">
+<em class="property">exception </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDFortranException</code><span class="sig-paren">(</span><em>code</em>, <em>origin</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDFortranException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDFortranException" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="pymbd.fortran.with_mpi">
+<code class="descclassname">pymbd.fortran.</code><code class="descname">with_mpi</code><a class="headerlink" href="#pymbd.fortran.with_mpi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether Libmbd was compiled with MPI</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pymbd.fortran.with_scalapack">
+<code class="descclassname">pymbd.fortran.</code><code class="descname">with_scalapack</code><a class="headerlink" href="#pymbd.fortran.with_scalapack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether Libmbd was compiled with Scalapack</p>
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -88,7 +169,11 @@
 </p>
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pymbd">Pure-Python implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pymbd.fortran">Fortran bindings</a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">

@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 7.7% of total for modules and submodules.">177 statements</a>
+    title=" 7.3% of total for modules and submodules.">166 statements</a>
      </li> 
      
      
@@ -178,18 +174,6 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints-0">Abstract Interfaces</a></h3></div>
-  <div id="absints-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/mbd_utils.html#interface-abstract_printer">abstract_printer</a>
-      
-    </div>
-  </div>
-</div>
-
-
 
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-0">Derived Types</a></h3></div>
@@ -204,23 +188,13 @@
       
       <a class="list-group-item" href="../module/mbd_utils.html#type-clock_t">clock_t</a>
       
-    </div>
-  </div>
-</div>
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/mbd_utils.html#proc-stdout_printer">stdout_printer</a>
+      <a class="list-group-item" href="../module/mbd_utils.html#type-quad_pt_t">quad_pt_t</a>
       
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -282,18 +256,6 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints-1">Abstract Interfaces</a></h3></div>
-  <div id="absints-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/mbd_utils.html#interface-abstract_printer">abstract_printer</a>
-      
-    </div>
-  </div>
-</div>
-
-
 
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-1">Derived Types</a></h3></div>
@@ -308,23 +270,13 @@
       
       <a class="list-group-item" href="../module/mbd_utils.html#type-clock_t">clock_t</a>
       
-    </div>
-  </div>
-</div>
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/mbd_utils.html#proc-stdout_printer">stdout_printer</a>
+      <a class="list-group-item" href="../module/mbd_utils.html#type-quad_pt_t">quad_pt_t</a>
       
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -346,77 +298,6 @@
     
     
 
-    
-    <section>
-     <h2>Abstract Interfaces</h2>
-   
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-abstract_printer"></span><h3>abstract interface
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Logging subroutine.</p>
-  </div>
-  
-  <ul class="list-group">
-    <li class="list-group-item">
-    
-    
-    <h3>
-public subroutine abstract_printer(msg)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>msg</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  </ul>
-</div>
-
-    
-    </section>
-  <br>
     
     
     
@@ -807,10 +688,10 @@ public subroutine abstract_printer(msg)
       <table class="table table-striped varlist">
       <tbody>
       
-       <tr><td>procedure, public :: <strong><a href='../type/clock_t.html#boundprocedure-init%7E3'>init</a></strong>  => clock_init </td>
+       <tr><td>procedure, public :: <strong><a href='../type/clock_t.html#boundprocedure-init%7E2'>init</a></strong>  => clock_init </td>
        <td></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/clock_t.html#boundprocedure-clock%7E2'>clock</a></strong>  => clock_clock </td>
+       <tr><td>procedure, public :: <strong><a href='../type/clock_t.html#boundprocedure-clock'>clock</a></strong>  => clock_clock </td>
        <td></td></tr>
       
        </tbody>
@@ -820,44 +701,23 @@ public subroutine abstract_printer(msg)
 </div>
 
      
-    </section>
-  <br>
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-quad_pt_t"></span><h3>type, public :: <a href='../type/quad_pt_t.html'>quad_pt_t</a>
     
-    
-    
-
-    
-    <section>
-    <h2>Subroutines</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-stdout_printer"></span><h3>
-public subroutine <a href='../proc/stdout_printer.html'>stdout_printer</a>(msg)
-    
-    
-   
-</h3></div>
+  </h3></div>
   <div class="panel-body">
-       
     
-
-
-
-
-
-
-
-<p>Print to standard output on zero-rank process only.</p>
     
-    <h4>Arguments</h4>
+    <p>Represents a 1D quadrature point</p>
     
-      
-      
+     
+     <h4>Components</h4>
+    
 <table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 
 
 
@@ -869,28 +729,45 @@ public subroutine <a href='../proc/stdout_printer.html'>stdout_printer</a>(msg)
   
 <tr>
   
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
+  <td><span class="anchor" id="variable-val"></span>real(kind=dp),</td>
   
+  <td>public</td>
   <td></td><td>::</td>
-  <td><strong>msg</strong></td><td></td>
+  <td><strong>val</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-weight"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>weight</strong></td><td></td><td></td><td></td>
   
 </tr>
 
 </tbody>
 </table>
 
-      
+     
+     
+          
+     
+  </div>
+</div>
+
+     
+    </section>
+  <br>
+    
     
     
 
-  </div>
-  </div>
-
-    
-    </section>    
-    <br>
     
     
     

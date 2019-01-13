@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="12.3% of total for procedures.">75 statements</a>
+    title="12.6% of total for procedures.">75 statements</a>
      </li> 
      
      
@@ -216,9 +212,11 @@ public function get_mbd_energy(geom, alpha_0, C6, damp, dene, grad) result(res)
  integrates the energy over the frist Brillouin zone.</p>
 <p>
 <script type="math/tex; mode=display">
- E=\int_\text{FBZ}\mathrm d\mathbf q\,E(\mathbf q)\approx\frac1N\sum_i^NE(\mathbf q_i)
- \\ \mathbf q_i=\mathbf b\mathbf n_i,\qquad\partial\mathbf
- q_i=\big((\partial\mathbf a)\mathbf a\big)^\mathrm T\mathbf q_i
+ E=\int_\text{FBZ}\mathrm d\mathbf q\,E(\mathbf
+ q)\approx\frac1{N_k}\sum_i^{N_k}E(\mathbf q_i)
+ \\ \mathbf q_i=\boldsymbol{\mathcal B}\mathbf n_i,\qquad\partial\mathbf
+ q_i=-\big((\partial\boldsymbol{\mathcal
+ A})\boldsymbol{\mathcal A}^{-1}\big)^\mathrm T\mathbf q_i
  </script>
 </p>
     

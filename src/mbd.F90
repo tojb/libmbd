@@ -7,14 +7,13 @@ module mbd
 !! High-level Fortran API.
 
 use mbd_constants
-use mbd_calc, only: calc_t
 use mbd_damping, only: damping_t
 use mbd_formulas, only: scale_with_ratio
 use mbd_geom, only: geom_t
 use mbd_gradients, only: grad_t, grad_request_t
 use mbd_methods, only: get_mbd_energy, get_mbd_scs_energy
 use mbd_ts, only: ts_energy
-use mbd_utils, only: result_t
+use mbd_utils, only: result_t, exception_t
 use mbd_vdw_param, only: ts_vdw_params, tssurf_vdw_params, species_index
 
 implicit none
@@ -32,6 +31,9 @@ type, public :: mbd_input_t
         !! - `mbd`: Generic MBD method (without any screening).
     integer :: comm = -1
         !! MPI communicator.
+        !!
+        !! Only used when compiled with MPI. Leave as is to use the
+        !! MPI_COMM_WORLD communicator.
     logical :: calculate_forces = .true.
         !! Whether to calculate forces.
     logical :: calculate_spectrum = .false.
@@ -79,15 +81,12 @@ type, public :: mbd_input_t
     real(dp), allocatable :: lattice_vectors(:, :)
         !! (\(3\times 3\), a.u.) Lattice vectors in columns, unallocated if not
         !! periodic.
-    integer :: k_grid(3)
+    integer :: k_grid(3) = [-1, -1, -1]
         !! Number of \(k\)-points along reciprocal axes.
-    logical :: vacuum_axis(3) = [.false., .false., .false.]
-        !! Is there vacuum along some axes in a periodic calculation?
     character(len=10) :: parallel_mode = 'auto'
         !! Parallelization scheme.
         !!
-        !! - `auto`: Pick based on system system size and number of
-        !! \(k\)-points.
+        !! - `auto`: Pick based on system system size and number of \(k\)-points.
         !! - `kpoints`: Parallelize over \(k\)-points.
         !! - `atoms`: Parallelize over atom pairs.
 end type
@@ -100,7 +99,6 @@ type, public :: mbd_calc_t
     real(dp), allocatable :: alpha_0(:)
     real(dp), allocatable :: C6(:)
     character(len=30) :: method
-    type(calc_t) :: calc
     type(result_t) :: results
     type(grad_t) :: denergy
     logical :: calculate_gradients
@@ -134,21 +132,29 @@ subroutine mbd_calc_init(this, input)
     this%method = input%method
     this%calculate_gradients = input%calculate_forces
     if (input%calculate_spectrum) then
-        this%geom%calc%get_eigs = .true.
-        this%geom%calc%get_modes = .true.
+        this%geom%get_eigs = .true.
+        this%geom%get_modes = .true.
     end if
-    this%calc%param%ts_energy_accuracy = input%ts_ene_acc
+    this%geom%param%ts_energy_accuracy = input%ts_ene_acc
     ! TODO ... = input%ts_f_acc
-    this%calc%param%n_frequency_grid = input%n_omega_grid
-    this%calc%param%k_grid_shift = input%k_grid_shift
-    this%calc%param%zero_negative_eigs = input%zero_negative_eigvals
-    this%geom%k_grid = input%k_grid
-    this%geom%vacuum_axis = input%vacuum_axis
+    this%geom%param%n_freq = input%n_omega_grid
+    this%geom%param%k_grid_shift = input%k_grid_shift
+    this%geom%param%zero_negative_eigvals = input%zero_negative_eigvals
+    if (.not. all(input%k_grid == -1)) this%geom%k_grid = input%k_grid
     this%geom%coords = input%coords
-    if (allocated(input%lattice_vectors)) this%geom%lattice = input%lattice_vectors
+    if (allocated(input%lattice_vectors)) then
+        if (.not. allocated(this%geom%k_grid)) then
+            this%geom%exc = exception_t( &
+                MBD_EXC_INPUT, &
+                'calc%init()', &
+                'Lattice vectors present but no k-grid specified' &
+            )
+            return
+        end if
+        this%geom%lattice = input%lattice_vectors
+    end if
     this%geom%parallel_mode = input%parallel_mode
-    call this%calc%init()
-    call this%geom%init(this%calc)
+    call this%geom%init()
     if (allocated(input%free_values)) then
         this%free_values = input%free_values
     else
@@ -165,7 +171,7 @@ subroutine mbd_calc_init(this, input)
         this%damp%ts_d = input%ts_d
         this%damp%ts_sr = input%ts_sr
     else
-        this%calc%exc = this%damp%set_params_from_xc(input%xc, input%method)
+        this%geom%exc = this%damp%set_params_from_xc(input%xc, input%method)
         if (this%geom%has_exc()) return
     end if
 end subroutine
@@ -175,7 +181,6 @@ subroutine mbd_calc_destroy(this)
     class(mbd_calc_t), target, intent(inout) :: this
 
     call this%geom%destroy()
-    call this%calc%destroy()
 end subroutine
 
 subroutine mbd_calc_update_coords(this, coords)
@@ -276,9 +281,9 @@ subroutine mbd_calc_get_gradients(this, gradients)  ! 3 by N  dE/dR
     !!
     !! The gradients are calculated together with the energy, so a call to this
     !! method must be preceeded by a call to
-    !! [[mbd_calc(type):evaluate_vdw_method]].  For the same reason, the
+    !! [[mbd_calc_t:evaluate_vdw_method]].  For the same reason, the
     !! gradients must be requested prior to this called via
-    !! [[mbd_input(type):calculate_forces]].
+    !! [[mbd_input_t:calculate_forces]].
     class(mbd_calc_t), intent(in) :: this
     real(dp), intent(out) :: gradients(:, :)
         !! (\(3\times N\), a.u.) Energy gradients, \(\mathrm dE/\mathrm d\mathbf
@@ -293,9 +298,9 @@ subroutine mbd_calc_get_lattice_derivs(this, latt_derivs)
     !!
     !! The gradients are actually calculated together with the energy, so a call
     !! to this method must be preceeded by a call to
-    !! [[mbd_calc(type):evaluate_vdw_method]].  For the same reason, the
+    !! [[mbd_calc_t:evaluate_vdw_method]].  For the same reason, the
     !! gradients must be requested prior to this called via
-    !! [[mbd_input(type):calculate_forces]].
+    !! [[mbd_input_t:calculate_forces]].
     class(mbd_calc_t), intent(in) :: this
     real(dp), intent(out) :: latt_derivs(:, :)
         !! (\(3\times 3\), a.u.) Energy gradients, \(\mathrm dE/\mathrm d\mathbf
@@ -309,9 +314,9 @@ subroutine mbd_calc_get_spectrum_modes(this, spectrum, modes)
     !!
     !! The spectrum is actually calculated together with the energy, so a call
     !! to this method must be preceeded by a call to
-    !! [[mbd_calc(type):evaluate_vdw_method]].  For the same reason, the
+    !! [[mbd_calc_t:evaluate_vdw_method]].  For the same reason, the
     !! spectrum must be requested prior to this called via
-    !! [[mbd_input(type):calculate_spectrum]].
+    !! [[mbd_input_t:calculate_spectrum]].
     class(mbd_calc_t), intent(inout) :: this
     real(dp), intent(out) :: spectrum(:)
         !! (\(3N\), a.u.) Energies (frequencies) of coupled MBD modues,
@@ -341,13 +346,13 @@ subroutine mbd_calc_get_exception(this, code, origin, msg)
     character(*), intent(out) :: msg
         !! Exception message.
 
-    code = this%calc%exc%code
+    code = this%geom%exc%code
     if (code == 0) return
-    origin = this%calc%exc%origin
-    msg = this%calc%exc%msg
-    this%calc%exc%code = 0
-    this%calc%exc%origin = ''
-    this%calc%exc%msg = ''
+    origin = this%geom%exc%origin
+    msg = this%geom%exc%msg
+    this%geom%exc%code = 0
+    this%geom%exc%origin = ''
+    this%geom%exc%msg = ''
 end subroutine
 
 end module

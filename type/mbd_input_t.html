@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p>12.4% of total for derived types.</p>Including implementation: 24 statements,  4.8% of total for derived types.">24 statements</a>
+    title="<p>12.4% of total for derived types.</p>Including implementation: 23 statements,  4.8% of total for derived types.">23 statements</a>
      </li> 
      
      
@@ -216,8 +212,6 @@
       <a class="list-group-item" href="../type/mbd_input_t.html#variable-lattice_vectors">lattice_vectors</a>
       
       <a class="list-group-item" href="../type/mbd_input_t.html#variable-k_grid">k_grid</a>
-      
-      <a class="list-group-item" href="../type/mbd_input_t.html#variable-vacuum_axis">vacuum_axis</a>
       
       <a class="list-group-item" href="../type/mbd_input_t.html#variable-parallel_mode">parallel_mode</a>
       
@@ -309,8 +303,6 @@
       
       <a class="list-group-item" href="../type/mbd_input_t.html#variable-k_grid">k_grid</a>
       
-      <a class="list-group-item" href="../type/mbd_input_t.html#variable-vacuum_axis">vacuum_axis</a>
-      
       <a class="list-group-item" href="../type/mbd_input_t.html#variable-parallel_mode">parallel_mode</a>
       
     </div>
@@ -383,7 +375,9 @@
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>comm</strong></td><td> =</td><td>-1</td><td><p>MPI communicator.</p></td>
+  <td><strong>comm</strong></td><td> =</td><td>-1</td><td><p>MPI communicator.</p>
+<p>Only used when compiled with MPI. Leave as is to use the
+ MPI_COMM_WORLD communicator.</p></td>
   
 </tr>
 
@@ -646,21 +640,7 @@
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>k_grid</strong>(3)</td><td></td><td></td><td><p>Number of <script type="math/tex">k</script>-points along reciprocal axes.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-vacuum_axis"></span>logical,</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>vacuum_axis</strong>(3)</td><td> =</td><td>[.false., .false., .false.]</td><td><p>Is there vacuum along some axes in a periodic calculation?</p></td>
+  <td><strong>k_grid</strong>(3)</td><td> =</td><td>[-1, -1, -1]</td><td><p>Number of <script type="math/tex">k</script>-points along reciprocal axes.</p></td>
   
 </tr>
 
@@ -676,8 +656,7 @@
   <td></td><td>::</td>
   <td><strong>parallel_mode</strong></td><td> =</td><td>'auto'</td><td><p>Parallelization scheme.</p>
 <ul>
-<li><code>auto</code>: Pick based on system system size and number of
- <script type="math/tex">k</script>-points.</li>
+<li><code>auto</code>: Pick based on system system size and number of <script type="math/tex">k</script>-points.</li>
 <li><code>kpoints</code>: Parallelize over <script type="math/tex">k</script>-points.</li>
 <li><code>atoms</code>: Parallelize over atom pairs.</li>
 </ul></td>

@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p>13.4% of total for derived types.</p>Including implementation: 158 statements, 31.9% of total for derived types.">26 statements</a>
+    title="<p>13.5% of total for derived types.</p>Including implementation: 160 statements, 33.7% of total for derived types.">25 statements</a>
      </li> 
      
      
@@ -1034,9 +1030,9 @@ private subroutine mbd_calc_get_gradients(this, gradients)
  input.</p>
 <p>The gradients are calculated together with the energy, so a call to this
  method must be preceeded by a call to
- <a>mbd_calc</a>.  For the same reason, the
+ <a href="../type/mbd_calc_t.html#boundprocedure-evaluate_vdw_method">evaluate_vdw_method</a>.  For the same reason, the
  gradients must be requested prior to this called via
- <a>mbd_input</a>.</p>
+ <a href="../type/mbd_input_t.html#variable-calculate_forces">calculate_forces</a>.</p>
     
     <h4>Arguments</h4>
     
@@ -1124,9 +1120,9 @@ private subroutine mbd_calc_get_lattice_derivs(this, latt_derivs)
  input.</p>
 <p>The gradients are actually calculated together with the energy, so a call
  to this method must be preceeded by a call to
- <a>mbd_calc</a>.  For the same reason, the
+ <a href="../type/mbd_calc_t.html#boundprocedure-evaluate_vdw_method">evaluate_vdw_method</a>.  For the same reason, the
  gradients must be requested prior to this called via
- <a>mbd_input</a>.</p>
+ <a href="../type/mbd_input_t.html#variable-calculate_forces">calculate_forces</a>.</p>
     
     <h4>Arguments</h4>
     
@@ -1213,9 +1209,9 @@ private subroutine mbd_calc_get_spectrum_modes(this, spectrum, modes)
 <p>Provide MBD spectrum if it was requested in the MBD input.</p>
 <p>The spectrum is actually calculated together with the energy, so a call
  to this method must be preceeded by a call to
- <a>mbd_calc</a>.  For the same reason, the
+ <a href="../type/mbd_calc_t.html#boundprocedure-evaluate_vdw_method">evaluate_vdw_method</a>.  For the same reason, the
  spectrum must be requested prior to this called via
- <a>mbd_input</a>.</p>
+ <a href="../type/mbd_input_t.html#variable-calculate_spectrum">calculate_spectrum</a>.</p>
     
     <h4>Arguments</h4>
     

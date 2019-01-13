@@ -69,8 +69,6 @@
                                 
             <li><a href="./lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="./lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="./lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="./lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="./lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="./lists/types.html">Derived Types</a></li>
 
@@ -125,7 +121,30 @@
         <div class="col-md-12">
 		  
           <h1>Libmbd</h1>
-          
+          <p>At the moment the documentation consists of an automatically generated API reference and a miniature of a user guide in the following paragraph. All mathematical formulas used in the code are documented directly in the source code and rendered in <a href="lists/procedures.html">Procedures</a>. Installation instructions can be found in the <a href="https://github.com/azag0/libmbd/blob/master/README.md">Readme</a>.</p>
+<p>The user-facing Fortran API of Libmbd is contained in the <a href="./module/mbd.html">mbd</a> module and consists of the <a href="./type/mbd_input_t.html">mbd_input_t</a> and <a href="./type/mbd_calc_t.html">mbd_calc_t</a> derived types. A <a href="./type/mbd_input_t.html">mbd_input_t</a> object serves to set various options for the calculation and is used to initialize a <a href="./type/mbd_calc_t.html">mbd_calc_t</a> object, which is then used to actually perform the MBD calculation.</p>
+<div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">mbd</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">mbd_input_t</span><span class="p">,</span> <span class="n">mbd_calc_t</span>
+
+<span class="k">type</span><span class="p">(</span><span class="n">mbd_input_t</span><span class="p">)</span> <span class="kd">::</span> <span class="n">inp</span>
+<span class="k">type</span><span class="p">(</span><span class="n">mbd_calc_t</span><span class="p">)</span> <span class="kd">::</span> <span class="n">calc</span>
+<span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">energy</span><span class="p">,</span> <span class="n">gradients</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="kt">integer</span> <span class="kd">::</span> <span class="n">code</span>
+<span class="kt">character</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="kd">::</span> <span class="n">origin</span><span class="p">,</span> <span class="n">msg</span>
+
+<span class="n">inp</span><span class="p">%</span><span class="n">atom_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ar&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar&#39;</span><span class="p">]</span>
+<span class="n">inp</span><span class="p">%</span><span class="n">coords</span> <span class="o">=</span> <span class="nb">reshape</span><span class="p">([</span><span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="mf">7.5d0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">inp</span><span class="p">%</span><span class="n">xc</span> <span class="o">=</span> <span class="s1">&#39;pbe&#39;</span>
+<span class="k">call </span><span class="n">calc</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="k">call </span><span class="n">calc</span><span class="p">%</span><span class="n">get_exception</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">code</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">    print</span> <span class="o">*</span><span class="p">,</span> <span class="n">msg</span>
+    <span class="k">stop</span>
+<span class="k">end if</span>
+<span class="k">call </span><span class="n">calc</span><span class="p">%</span><span class="n">update_vdw_params_from_ratios</span><span class="p">([</span><span class="mf">0.98d0</span><span class="p">,</span> <span class="mf">0.98d0</span><span class="p">])</span>
+<span class="k">call </span><span class="n">calc</span><span class="p">%</span><span class="n">evaluate_vdw_method</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+<span class="k">call </span><span class="n">calc</span><span class="p">%</span><span class="n">get_gradients</span><span class="p">(</span><span class="n">gradients</span><span class="p">)</span>
+<span class="k">call </span><span class="n">calc</span><span class="p">%</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
         </div>
 		  
       </div>
@@ -141,10 +160,6 @@
                 
                   
                     <li><a href='./sourcefile/mbd.f90.html'>mbd.F90</a></li>
-                  
-                
-                  
-                    <li><a href='./sourcefile/mbd_calc.f90.html'>mbd_calc.F90</a></li>
                   
                 
                   
@@ -180,9 +195,11 @@
                   
                 
                   
-                    <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+                    <li><a href='./sourcefile/mbd_methods.f90.html'>mbd_methods.F90</a></li>
                   
                 
+                  
+                    <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
                   
                 
                   
@@ -198,10 +215,6 @@
                 
                   
                     <li><a href='./module/mbd.html'>mbd</a></li>
-                  
-                
-                  
-                    <li><a href='./module/mbd_calc.html'>mbd_calc</a></li>
                   
                 
                   
@@ -237,9 +250,11 @@
                   
                 
                   
-                    <li><a href="./lists/modules.html"><em>All modules&hellip;</em></a></li>
+                    <li><a href='./module/mbd_methods.html'>mbd_methods</a></li>
                   
                 
+                  
+                    <li><a href="./lists/modules.html"><em>All modules&hellip;</em></a></li>
                   
                 
                   
@@ -310,8 +325,6 @@
                 
                   
                 
-                  
-                
               </ul>
           </div>
           
@@ -322,10 +335,6 @@
                 
                   
                     <li><a href='./type/atom_index_t.html'>atom_index_t</a></li>
-                  
-                
-                  
-                    <li><a href='./type/calc_t.html'>calc_t</a></li>
                   
                 
                   
@@ -358,6 +367,10 @@
                 
                   
                     <li><a href='./type/grad_scalar_t.html'>grad_scalar_t</a></li>
+                  
+                
+                  
+                    <li><a href='./type/grad_t.html'>grad_t</a></li>
                   
                 
                   

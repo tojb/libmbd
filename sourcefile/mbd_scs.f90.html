@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 5.1% of total for source files.">118 statements</a>
+    title=" 5.2% of total for source files.">118 statements</a>
      </li> 
      
      
@@ -347,13 +343,13 @@
 <a name="ln-78"></a>    <span class="k">end if</span>
 <a name="ln-79"></a><span class="k">    call </span><span class="n">alpha_full</span><span class="p">%</span><span class="n">add_diag</span><span class="p">(</span><span class="mi">1</span><span class="n">d0</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span>
 <a name="ln-80"></a>    <span class="k">call </span><span class="n">geom</span><span class="p">%</span><span class="n">clock</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
-<a name="ln-81"></a>    <span class="k">call </span><span class="n">alpha_full</span><span class="p">%</span><span class="n">invh</span><span class="p">(</span><span class="n">geom</span><span class="p">%</span><span class="n">calc</span><span class="p">%</span><span class="n">exc</span><span class="p">)</span>
+<a name="ln-81"></a>    <span class="k">call </span><span class="n">alpha_full</span><span class="p">%</span><span class="n">invh</span><span class="p">(</span><span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">)</span>
 <a name="ln-82"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">geom</span><span class="p">%</span><span class="n">has_exc</span><span class="p">())</span> <span class="k">return</span>
 <a name="ln-83"></a><span class="k">    call </span><span class="n">geom</span><span class="p">%</span><span class="n">clock</span><span class="p">(</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
 <a name="ln-84"></a>    <span class="n">alpha_scs</span> <span class="o">=</span> <span class="n">alpha_full</span><span class="p">%</span><span class="n">contract_n33diag_cols</span><span class="p">()</span>
 <a name="ln-85"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">alpha_scs</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="k">then</span>
-<a name="ln-86"></a><span class="k">        </span><span class="n">geom</span><span class="p">%</span><span class="n">calc</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">code</span> <span class="o">=</span> <span class="n">MBD_EXC_NEG_POL</span>
-<a name="ln-87"></a>        <span class="n">geom</span><span class="p">%</span><span class="n">calc</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Screening leads to negative polarizability&#39;</span>
+<a name="ln-86"></a><span class="k">        </span><span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">code</span> <span class="o">=</span> <span class="n">MBD_EXC_NEG_POL</span>
+<a name="ln-87"></a>        <span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Screening leads to negative polarizability&#39;</span>
 <a name="ln-88"></a>        <span class="k">return</span>
 <a name="ln-89"></a><span class="k">    end if</span>
 <a name="ln-90"></a><span class="k">    if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">grad</span><span class="p">%</span><span class="nb">any</span><span class="p">())</span> <span class="k">return</span>

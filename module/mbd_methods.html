@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 9.3% of total for modules and submodules.">213 statements</a>
+    title="10.2% of total for modules and submodules.">232 statements</a>
      </li> 
      
      
@@ -223,7 +219,7 @@
     
     <li><a href='../module/mbd_constants.html'>mbd_constants</a></li>
     
-    <li><a href='../module/mbd_calc.html'>mbd_calc</a></li>
+    <li><a href='../module/mbd_damping.html'>mbd_damping</a></li>
     
     <li><a href='../module/mbd_formulas.html'>mbd_formulas</a></li>
     
@@ -233,7 +229,7 @@
     
     <li><a href='../module/mbd_hamiltonian.html'>mbd_hamiltonian</a></li>
     
-    <li><a href='../module/mbd_damping.html'>mbd_damping</a></li>
+    <li>mbd_lapack</li>
     
     <li>mbd_rpa</li>
     
@@ -341,9 +337,11 @@ public function <a href='../proc/get_mbd_energy.html'>get_mbd_energy</a>(geom, a
  integrates the energy over the frist Brillouin zone.</p>
 <p>
 <script type="math/tex; mode=display">
- E=\int_\text{FBZ}\mathrm d\mathbf q\,E(\mathbf q)\approx\frac1N\sum_i^NE(\mathbf q_i)
- \\ \mathbf q_i=\mathbf b\mathbf n_i,\qquad\partial\mathbf
- q_i=\big((\partial\mathbf a)\mathbf a\big)^\mathrm T\mathbf q_i
+ E=\int_\text{FBZ}\mathrm d\mathbf q\,E(\mathbf
+ q)\approx\frac1{N_k}\sum_i^{N_k}E(\mathbf q_i)
+ \\ \mathbf q_i=\boldsymbol{\mathcal B}\mathbf n_i,\qquad\partial\mathbf
+ q_i=-\big((\partial\boldsymbol{\mathcal
+ A})\boldsymbol{\mathcal A}^{-1}\big)^\mathrm T\mathbf q_i
  </script>
 </p>
     

@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p>11.9% of total for derived types.</p>Including implementation: 79 statements, 16.0% of total for derived types.">23 statements</a>
+    title="<p>15.1% of total for derived types.</p>Including implementation: 93 statements, 19.6% of total for derived types.">28 statements</a>
      </li> 
      
      
@@ -177,23 +173,37 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/geom_t.html#variable-calc">calc</a>
-      
       <a class="list-group-item" href="../type/geom_t.html#variable-coords%7E2">coords</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#variable-vacuum_axis%7E2">vacuum_axis</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-lattice">lattice</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-k_grid%7E2">k_grid</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#variable-k_pts">k_pts</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#variable-gamma_ew">gamma_ew</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#variable-supercell">supercell</a>
-      
       <a class="list-group-item" href="../type/geom_t.html#variable-parallel_mode%7E2">parallel_mode</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-get_eigs">get_eigs</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-get_modes">get_modes</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-do_rpa">do_rpa</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-get_rpa_orders">get_rpa_orders</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-clock_">clock_</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-exc">exc</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-muted">muted</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-freq">freq</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-gamm">gamm</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-real_space_cutoff">real_space_cutoff</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-rec_space_cutoff">rec_space_cutoff</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-param">param</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-idx">idx</a>
       
@@ -229,19 +239,15 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-init%7E4">init</a>
+      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-init%7E3">init</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-destroy%7E3">destroy</a>
+      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-destroy%7E2">destroy</a>
       
       <a class="list-group-item" href="../type/geom_t.html#boundprocedure-siz">siz</a>
       
       <a class="list-group-item" href="../type/geom_t.html#boundprocedure-has_exc">has_exc</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-supercell_circum">supercell_circum</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-ensure_k_pts">ensure_k_pts</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-clock%7E3">clock</a>
+      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-clock%7E2">clock</a>
       
     </div>
   </div>
@@ -258,6 +264,7 @@
     <div class="col-md-9" id='text'>
       <h2>type, public :: geom_t</h2>
     <p>Represents a molecule or a crystal unit cell.</p>
+<p>The documented variables should be set before calling the initializer.</p>
     
     
     
@@ -275,23 +282,37 @@
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/geom_t.html#variable-calc">calc</a>
-      
       <a class="list-group-item" href="../type/geom_t.html#variable-coords%7E2">coords</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#variable-vacuum_axis%7E2">vacuum_axis</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-lattice">lattice</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-k_grid%7E2">k_grid</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#variable-k_pts">k_pts</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#variable-gamma_ew">gamma_ew</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#variable-supercell">supercell</a>
-      
       <a class="list-group-item" href="../type/geom_t.html#variable-parallel_mode%7E2">parallel_mode</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-get_eigs">get_eigs</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-get_modes">get_modes</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-do_rpa">do_rpa</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-get_rpa_orders">get_rpa_orders</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-clock_">clock_</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-exc">exc</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-muted">muted</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-freq">freq</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-gamm">gamm</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-real_space_cutoff">real_space_cutoff</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-rec_space_cutoff">rec_space_cutoff</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-param">param</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-idx">idx</a>
       
@@ -327,19 +348,15 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-init%7E4">init</a>
+      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-init%7E3">init</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-destroy%7E3">destroy</a>
+      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-destroy%7E2">destroy</a>
       
       <a class="list-group-item" href="../type/geom_t.html#boundprocedure-siz">siz</a>
       
       <a class="list-group-item" href="../type/geom_t.html#boundprocedure-has_exc">has_exc</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-supercell_circum">supercell_circum</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-ensure_k_pts">ensure_k_pts</a>
-      
-      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-clock%7E3">clock</a>
+      <a class="list-group-item" href="../type/geom_t.html#boundprocedure-clock%7E2">clock</a>
       
     </div>
   </div>
@@ -371,39 +388,11 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-calc"></span>type(<a href='../type/calc_t.html'>calc_t</a>),</td>
-  
-  <td>public,</td>
-  <td>pointer</td><td>::</td>
-  <td><strong>calc</strong></td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
   <td><span class="anchor" id="variable-coords%7E2"></span>real(kind=dp),</td>
   
   <td>public,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>coords</strong>(:,:)</td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-vacuum_axis%7E2"></span>logical,</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>vacuum_axis</strong>(3)</td><td> =</td><td>[.false., .false., .false.]</td><td></td>
+  <td><strong>coords</strong>(:,:)</td><td></td><td></td><td><p>(<script type="math/tex">3\times N</script>, a.u.) Atomic coordinates.</p></td>
   
 </tr>
 
@@ -417,7 +406,8 @@
   
   <td>public,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>lattice</strong>(:,:)</td><td></td><td></td><td></td>
+  <td><strong>lattice</strong>(:,:)</td><td></td><td></td><td><p>(<script type="math/tex">3\times 3</script>, a.u.) Lattice vectors in columns, unallocated if not
+ periodic.</p></td>
   
 </tr>
 
@@ -429,51 +419,9 @@
   
   <td><span class="anchor" id="variable-k_grid%7E2"></span>integer,</td>
   
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>k_grid</strong>(3)</td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-k_pts"></span>real(kind=dp),</td>
-  
   <td>public,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>k_pts</strong>(:,:)</td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-gamma_ew"></span>real(kind=dp),</td>
-  
-  <td>public,</td>
-  <td>allocatable</td><td>::</td>
-  <td><strong>gamma_ew</strong></td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-supercell"></span>integer,</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>supercell</strong>(3)</td><td></td><td></td><td></td>
+  <td><strong>k_grid</strong>(:)</td><td></td><td></td><td><p>Number of <script type="math/tex">k</script>-points along reciprocal axes.</p></td>
   
 </tr>
 
@@ -494,6 +442,174 @@
 <li><code>k_points</code>: parallelize over k-points (each MPI task solves entire
  eigenproblems for its k-points)</li>
 </ul></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-get_eigs"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>get_eigs</strong></td><td> =</td><td>.false.</td><td><p>Whether to keep MBD eigenvalues</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-get_modes"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>get_modes</strong></td><td> =</td><td>.false.</td><td><p>Whether to calculate MBD eigenvectors</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-do_rpa"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>do_rpa</strong></td><td> =</td><td>.false.</td><td><p>Whether to calculate MBD energy by frequency integration</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-get_rpa_orders"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>get_rpa_orders</strong></td><td> =</td><td>.false.</td><td><p>Whether to calculate RPA orders</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-clock_"></span>type(<a href='../type/clock_t.html'>clock_t</a>),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>clock_</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-exc"></span>type(<a href='../type/exception_t.html'>exception_t</a>),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>exc</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-muted"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>muted</strong></td><td> =</td><td>.false.</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-freq"></span>type(<a href='../type/quad_pt_t.html'>quad_pt_t</a>),</td>
+  
+  <td>public,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>freq</strong>(:)</td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-gamm"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>gamm</strong></td><td> =</td><td>0d0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-real_space_cutoff"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>real_space_cutoff</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rec_space_cutoff"></span>real(kind=dp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rec_space_cutoff</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-param"></span>type(<a href='../type/param_t.html'>param_t</a>),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>param</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -570,7 +686,7 @@
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E4"></span><h3>procedure, public :: <strong>init</strong>  => geom_init 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E3"></span><h3>procedure, public :: <strong>init</strong>  => geom_init 
     
   </h3></div>
   
@@ -582,7 +698,7 @@
           
     
     <h3>
-private subroutine geom_init(this, calc)
+private subroutine geom_init(this)
     
     
    
@@ -617,21 +733,6 @@ private subroutine geom_init(this, calc)
   
 </tr>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>type(<a href='../type/calc_t.html'>calc_t</a>),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>target</td><td>::</td>
-  <td><strong>calc</strong></td><td></td>
-  
-</tr>
-
 </tbody>
 </table>
 
@@ -649,7 +750,7 @@ private subroutine geom_init(this, calc)
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy%7E3"></span><h3>procedure, public :: <strong>destroy</strong>  => geom_destroy 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy%7E2"></span><h3>procedure, public :: <strong>destroy</strong>  => geom_destroy 
     
   </h3></div>
   
@@ -859,174 +960,7 @@ private function geom_has_exc(this) result(has_exc)
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-supercell_circum"></span><h3>procedure, public :: <strong>supercell_circum</strong>  => geom_supercell_circum 
-    
-  </h3></div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-        
-          
-    
-    <h3>
-private function geom_supercell_circum(this, uc, radius) result(sc)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/geom_t.html'>geom_t</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>uc</strong>(3,3)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>radius</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer
-  (3)</small></h4>
-  
-    
-
-        
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-ensure_k_pts"></span><h3>procedure, public :: <strong>ensure_k_pts</strong>  => geom_ensure_k_pts 
-    
-  </h3></div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-        
-          
-    
-    <h3>
-private subroutine geom_ensure_k_pts(this)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/geom_t.html'>geom_t</a>),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-        
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-clock%7E3"></span><h3>procedure, public :: <strong>clock</strong>  => geom_clock 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-clock%7E2"></span><h3>procedure, public :: <strong>clock</strong>  => geom_clock 
     
   </h3></div>
   

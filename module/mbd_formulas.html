@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 3.4% of total for modules and submodules.">79 statements</a>
+    title=" 3.4% of total for modules and submodules.">78 statements</a>
      </li> 
      
      
@@ -228,8 +224,6 @@
   <ul class="list-inline">
     
     <li><a href='../module/mbd_constants.html'>mbd_constants</a></li>
-    
-    <li><a href='../module/mbd_calc.html'>mbd_calc</a></li>
     
     <li><a href='../module/mbd_gradients.html'>mbd_gradients</a></li>
     
@@ -437,7 +431,7 @@ public function <a href='../proc/omega_qho.html'>omega_qho</a>(C6, alpha, domega
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-alpha_dyn_qho"></span><h3>
-public function <a href='../proc/alpha_dyn_qho.html'>alpha_dyn_qho</a>(calc, alpha_0, omega, dalpha, grad) result(alpha)
+public function <a href='../proc/alpha_dyn_qho.html'>alpha_dyn_qho</a>(alpha_0, omega, freq, dalpha, grad) result(alpha)
     
     
    
@@ -481,21 +475,6 @@ public function <a href='../proc/alpha_dyn_qho.html'>alpha_dyn_qho</a>(calc, alp
   
 <tr>
   
-  <td><span class="anchor" ></span>type(<a href='../type/calc_t.html'>calc_t</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>calc</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
   <td><span class="anchor" ></span>real(kind=dp),</td>
   <td>intent(in)</td>
   <td></td>
@@ -517,6 +496,21 @@ public function <a href='../proc/alpha_dyn_qho.html'>alpha_dyn_qho</a>(calc, alp
   
   <td></td><td>::</td>
   <td><strong>omega</strong>(:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>type(<a href='../type/quad_pt_t.html'>quad_pt_t</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>freq</strong>(0:)</td><td></td>
   
 </tr>
 
@@ -562,7 +556,7 @@ public function <a href='../proc/alpha_dyn_qho.html'>alpha_dyn_qho</a>(calc, alp
   
   
      <h4>Return Value <small>real(kind=dp)
-  (size(alpha_0),0:ubound(calc%omega_grid,1))</small></h4>
+  (size(alpha_0),0:ubound(freq,1))</small></h4>
   
     
 
@@ -573,7 +567,7 @@ public function <a href='../proc/alpha_dyn_qho.html'>alpha_dyn_qho</a>(calc, alp
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-c6_from_alpha"></span><h3>
-public function <a href='../proc/c6_from_alpha.html'>C6_from_alpha</a>(calc, alpha, dC6_dalpha, grad) result(C6)
+public function <a href='../proc/c6_from_alpha.html'>C6_from_alpha</a>(alpha, freq, dC6_dalpha, grad) result(C6)
     
     
    
@@ -615,12 +609,12 @@ public function <a href='../proc/c6_from_alpha.html'>C6_from_alpha</a>(calc, alp
   
 <tr>
   
-  <td><span class="anchor" ></span>type(<a href='../type/calc_t.html'>calc_t</a>),</td>
+  <td><span class="anchor" ></span>real(kind=dp),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>calc</strong></td><td></td>
+  <td><strong>alpha</strong>(:,0:)</td><td></td>
   
 </tr>
 
@@ -630,12 +624,12 @@ public function <a href='../proc/c6_from_alpha.html'>C6_from_alpha</a>(calc, alp
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td><span class="anchor" ></span>type(<a href='../type/quad_pt_t.html'>quad_pt_t</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>alpha</strong>(:,0:)</td><td></td>
+  <td><strong>freq</strong>(0:)</td><td></td>
   
 </tr>
 

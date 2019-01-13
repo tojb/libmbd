@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 3.7% of total for source files.">86 statements</a>
+    title=" 3.7% of total for source files.">83 statements</a>
      </li> 
      
      
@@ -277,7 +273,7 @@
 <a name="ln-8"></a><span class="k">use </span><span class="n">mbd_constants</span>
 <a name="ln-9"></a><span class="k">use </span><span class="n">mbd_utils</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">shift_idx</span><span class="p">,</span> <span class="n">tostr</span>
 <a name="ln-10"></a><span class="k">use </span><span class="n">mbd_damping</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">damping_t</span><span class="p">,</span> <span class="n">damping_fermi</span>
-<a name="ln-11"></a><span class="k">use </span><span class="n">mbd_geom</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">geom_t</span>
+<a name="ln-11"></a><span class="k">use </span><span class="n">mbd_geom</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">geom_t</span><span class="p">,</span> <span class="n">supercell_circum</span>
 <a name="ln-12"></a>
 <a name="ln-13"></a><span class="k">implicit none</span>
 <a name="ln-14"></a>
@@ -307,7 +303,7 @@
 <a name="ln-38"></a><span class="k">        </span><span class="n">i_shell</span> <span class="o">=</span> <span class="n">i_shell</span><span class="o">+</span><span class="mi">1</span>
 <a name="ln-39"></a>        <span class="n">ene_shell</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>
 <a name="ln-40"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">is_periodic</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-41"></a><span class="k">            </span><span class="n">range_cell</span> <span class="o">=</span> <span class="n">geom</span><span class="p">%</span><span class="n">supercell_circum</span><span class="p">(</span><span class="n">geom</span><span class="p">%</span><span class="n">lattice</span><span class="p">,</span> <span class="n">i_shell</span><span class="o">*</span><span class="n">shell_thickness</span><span class="p">)</span>
+<a name="ln-41"></a><span class="k">            </span><span class="n">range_cell</span> <span class="o">=</span> <span class="n">supercell_circum</span><span class="p">(</span><span class="n">geom</span><span class="p">%</span><span class="n">lattice</span><span class="p">,</span> <span class="n">i_shell</span><span class="o">*</span><span class="n">shell_thickness</span><span class="p">)</span>
 <a name="ln-42"></a>        <span class="k">else</span>
 <a name="ln-43"></a><span class="k">            </span><span class="n">range_cell</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <a name="ln-44"></a>        <span class="k">end if</span>
@@ -326,7 +322,7 @@
 <a name="ln-57"></a><span class="k">                    end if</span>
 <a name="ln-58"></a><span class="k">                    </span><span class="n">r</span> <span class="o">=</span> <span class="n">geom</span><span class="p">%</span><span class="n">coords</span><span class="p">(:,</span> <span class="n">i_atom</span><span class="p">)</span><span class="o">-</span><span class="n">geom</span><span class="p">%</span><span class="n">coords</span><span class="p">(:,</span> <span class="n">j_atom</span><span class="p">)</span><span class="o">-</span><span class="n">R_cell</span>
 <a name="ln-59"></a>                    <span class="n">r_norm</span> <span class="o">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<a name="ln-60"></a>                    <span class="k">if</span> <span class="p">(</span><span class="n">r_norm</span> <span class="o">&gt;</span> <span class="n">geom</span><span class="p">%</span><span class="n">calc</span><span class="p">%</span><span class="n">param</span><span class="p">%</span><span class="n">ts_cutoff_radius</span><span class="p">)</span> <span class="k">cycle</span>
+<a name="ln-60"></a>                    <span class="k">if</span> <span class="p">(</span><span class="n">r_norm</span> <span class="o">&gt;</span> <span class="n">geom</span><span class="p">%</span><span class="n">param</span><span class="p">%</span><span class="n">ts_cutoff_radius</span><span class="p">)</span> <span class="k">cycle</span>
 <a name="ln-61"></a><span class="k">                    if</span> <span class="p">(</span><span class="n">is_periodic</span><span class="p">)</span> <span class="k">then</span>
 <a name="ln-62"></a><span class="k">                        if</span> <span class="p">(</span><span class="n">r_norm</span> <span class="o">&gt;=</span> <span class="n">i_shell</span><span class="o">*</span><span class="n">shell_thickness</span> <span class="p">&amp;</span>
 <a name="ln-63"></a>                            <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">r_norm</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">i_shell</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">shell_thickness</span><span class="p">)</span> <span class="k">then</span>
@@ -358,26 +354,18 @@
 <a name="ln-89"></a>        <span class="k">end do</span> <span class="c">! i_cell</span>
 <a name="ln-90"></a>        <span class="n">ene</span> <span class="o">=</span> <span class="n">ene</span><span class="o">+</span><span class="n">ene_shell</span>
 <a name="ln-91"></a>        <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">is_periodic</span><span class="p">)</span> <span class="k">exit</span>
-<a name="ln-92"></a><span class="k">        if</span> <span class="p">(</span><span class="n">i_shell</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">&amp;</span>
-<a name="ln-93"></a>                <span class="nb">abs</span><span class="p">(</span><span class="n">ene_shell</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">geom</span><span class="p">%</span><span class="n">calc</span><span class="p">%</span><span class="n">param</span><span class="p">%</span><span class="n">ts_energy_accuracy</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-94"></a><span class="k">            call </span><span class="n">geom</span><span class="p">%</span><span class="n">calc</span><span class="p">%</span><span class="k">print</span><span class="p">(</span> <span class="p">&amp;</span>
-<a name="ln-95"></a>                <span class="s2">&quot;Periodic TS converged in &quot;</span> <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">tostr</span><span class="p">(</span><span class="n">i_shell</span><span class="p">))</span> <span class="p">&amp;</span>
-<a name="ln-96"></a>                <span class="o">//</span> <span class="s2">&quot; shells, &quot;</span> <span class="o">//</span> <span class="nb">trim</span><span class="p">(</span><span class="n">tostr</span><span class="p">(</span><span class="n">i_shell</span><span class="o">*</span><span class="n">shell_thickness</span><span class="o">/</span><span class="n">ang</span><span class="p">))</span> <span class="p">&amp;</span>
-<a name="ln-97"></a>                <span class="o">//</span> <span class="s2">&quot; angstroms&quot;</span> <span class="p">&amp;</span>
-<a name="ln-98"></a>            <span class="p">)</span>
-<a name="ln-99"></a>            <span class="k">exit</span>
-<a name="ln-100"></a><span class="k">        </span><span class="n">endif</span>
-<a name="ln-101"></a>    <span class="k">end do</span> <span class="c">! i_shell</span>
-<a name="ln-102"></a><span class="k">end function</span>
-<a name="ln-103"></a>
-<a name="ln-104"></a><span class="k">elemental function </span><span class="n">combine_C6</span><span class="p">(</span><span class="n">C6_i</span><span class="p">,</span> <span class="n">C6_j</span><span class="p">,</span> <span class="n">alpha_0_i</span><span class="p">,</span> <span class="n">alpha_0_j</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">C6_ij</span><span class="p">)</span>
-<a name="ln-105"></a>    <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">C6_i</span><span class="p">,</span> <span class="n">C6_j</span><span class="p">,</span> <span class="n">alpha_0_i</span><span class="p">,</span> <span class="n">alpha_0_j</span>
-<a name="ln-106"></a>    <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="kd">::</span> <span class="n">C6_ij</span>
-<a name="ln-107"></a>
-<a name="ln-108"></a>    <span class="n">C6_ij</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">C6_i</span><span class="o">*</span><span class="n">C6_j</span><span class="o">/</span><span class="p">(</span><span class="n">alpha_0_j</span><span class="o">/</span><span class="n">alpha_0_i</span><span class="o">*</span><span class="n">C6_i</span><span class="o">+</span><span class="n">alpha_0_i</span><span class="o">/</span><span class="n">alpha_0_j</span><span class="o">*</span><span class="n">C6_j</span><span class="p">)</span>
-<a name="ln-109"></a><span class="k">end function</span>
-<a name="ln-110"></a>
-<a name="ln-111"></a><span class="k">end module</span>
+<a name="ln-92"></a><span class="k">        if</span> <span class="p">(</span><span class="n">i_shell</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ene_shell</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">geom</span><span class="p">%</span><span class="n">param</span><span class="p">%</span><span class="n">ts_energy_accuracy</span><span class="p">)</span> <span class="k">exit</span>
+<a name="ln-93"></a><span class="k">    end do</span> <span class="c">! i_shell</span>
+<a name="ln-94"></a><span class="k">end function</span>
+<a name="ln-95"></a>
+<a name="ln-96"></a><span class="k">elemental function </span><span class="n">combine_C6</span><span class="p">(</span><span class="n">C6_i</span><span class="p">,</span> <span class="n">C6_j</span><span class="p">,</span> <span class="n">alpha_0_i</span><span class="p">,</span> <span class="n">alpha_0_j</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">C6_ij</span><span class="p">)</span>
+<a name="ln-97"></a>    <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">C6_i</span><span class="p">,</span> <span class="n">C6_j</span><span class="p">,</span> <span class="n">alpha_0_i</span><span class="p">,</span> <span class="n">alpha_0_j</span>
+<a name="ln-98"></a>    <span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="kd">::</span> <span class="n">C6_ij</span>
+<a name="ln-99"></a>
+<a name="ln-100"></a>    <span class="n">C6_ij</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">C6_i</span><span class="o">*</span><span class="n">C6_j</span><span class="o">/</span><span class="p">(</span><span class="n">alpha_0_j</span><span class="o">/</span><span class="n">alpha_0_i</span><span class="o">*</span><span class="n">C6_i</span><span class="o">+</span><span class="n">alpha_0_i</span><span class="o">/</span><span class="n">alpha_0_j</span><span class="o">*</span><span class="n">C6_j</span><span class="p">)</span>
+<a name="ln-101"></a><span class="k">end function</span>
+<a name="ln-102"></a>
+<a name="ln-103"></a><span class="k">end module</span>
 </pre></div>
 
     </section>

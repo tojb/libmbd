@@ -69,8 +69,6 @@
                                 
             <li><a href="../lists/procedures.html">Procedures</a></li>
         
-        
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
                
             <li><a href="../lists/types.html">Derived Types</a></li>
         
@@ -89,8 +87,6 @@
 
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
 
-
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
@@ -132,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 8.6% of total for modules and submodules.">197 statements</a>
+    title=" 8.7% of total for modules and submodules.">197 statements</a>
      </li> 
      
      
@@ -222,8 +218,6 @@
   <ul class="list-inline">
     
     <li><a href='../module/mbd_constants.html'>mbd_constants</a></li>
-    
-    <li><a href='../module/mbd_calc.html'>mbd_calc</a></li>
     
     <li><a href='../module/mbd_damping.html'>mbd_damping</a></li>
     
@@ -364,7 +358,9 @@
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>comm</strong></td><td> =</td><td>-1</td><td><p>MPI communicator.</p></td>
+  <td><strong>comm</strong></td><td> =</td><td>-1</td><td><p>MPI communicator.</p>
+<p>Only used when compiled with MPI. Leave as is to use the
+ MPI_COMM_WORLD communicator.</p></td>
   
 </tr>
 
@@ -627,21 +623,7 @@
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>k_grid</strong>(3)</td><td></td><td></td><td><p>Number of <script type="math/tex">k</script>-points along reciprocal axes.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-vacuum_axis"></span>logical,</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>vacuum_axis</strong>(3)</td><td> =</td><td>[.false., .false., .false.]</td><td><p>Is there vacuum along some axes in a periodic calculation?</p></td>
+  <td><strong>k_grid</strong>(3)</td><td> =</td><td>[-1, -1, -1]</td><td><p>Number of <script type="math/tex">k</script>-points along reciprocal axes.</p></td>
   
 </tr>
 
@@ -657,8 +639,7 @@
   <td></td><td>::</td>
   <td><strong>parallel_mode</strong></td><td> =</td><td>'auto'</td><td><p>Parallelization scheme.</p>
 <ul>
-<li><code>auto</code>: Pick based on system system size and number of
- <script type="math/tex">k</script>-points.</li>
+<li><code>auto</code>: Pick based on system system size and number of <script type="math/tex">k</script>-points.</li>
 <li><code>kpoints</code>: Parallelize over <script type="math/tex">k</script>-points.</li>
 <li><code>atoms</code>: Parallelize over atom pairs.</li>
 </ul></td>
