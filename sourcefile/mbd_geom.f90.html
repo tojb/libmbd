@@ -390,7 +390,7 @@
 <a name="ln-125"></a><span class="k">        end if</span>
 <a name="ln-126"></a><span class="k">    end if</span>
 <a name="ln-127"></a><span class="cp">#ifdef WITH_SCALAPACK</span>
-<a name="ln-128"></a>    <span class="n">this</span><span class="p">%</span><span class="n">idx</span><span class="p">%</span><span class="n">parallel</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">parallel_mode</span> <span class="o">==</span> <span class="s1">&#39;atoms&#39;</span>
+<a name="ln-128"></a>    <span class="n">this</span><span class="p">%</span><span class="n">idx</span><span class="p">%</span><span class="n">parallel</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">parallel_mode</span> <span class="o">==</span> <span class="s1">&#39;atoms&#39;</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">this</span><span class="p">%</span><span class="n">siz</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span>
 <a name="ln-129"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">idx</span><span class="p">%</span><span class="n">parallel</span><span class="p">)</span> <span class="k">then</span>
 <a name="ln-130"></a><span class="cp">#   ifdef WITH_MPI</span>
 <a name="ln-131"></a>        <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blacs_grid</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">comm</span><span class="p">)</span>
