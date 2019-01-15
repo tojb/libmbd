@@ -288,11 +288,11 @@ type(result_t) function get_mbd_scs_energy( &
     end if
 end function
 
-real(dp) function test_frequency_grid(freq)
-    !! Calculate eelative quadrature error in C6 of a carbon atom
+real(dp) function test_frequency_grid(freq) result(error)
+    !! Calculate relative quadrature error in C6 of a carbon atom
     type(quad_pt_t), intent(in) :: freq(:)
 
-    real(dp) :: alpha(1, 0:ubound(freq, 1)), C6(1), error
+    real(dp) :: alpha(1, 0:ubound(freq, 1)), C6(1)
     type(grad_t), allocatable :: dalpha(:)
     type(grad_request_t) :: grad
 
@@ -307,7 +307,7 @@ function make_k_pts(k_grid, lattice, shift, dkdlattice, grad) result(k_pts)
     real(dp), intent(in) :: shift
     real(dp), allocatable, intent(out) :: dkdlattice(:, :, :, :)
     logical, intent(in) :: grad
-    real(dp) :: k_pts(3, product(k_grid))
+    real(dp) :: k_pts(3, k_grid(1)*k_grid(2)*k_grid(3))
 
     integer :: n_kpt(3), i_kpt, i_latt, a
     real(dp) :: n_kpt_shifted(3), latt_inv(3, 3)
