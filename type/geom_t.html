@@ -128,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p>15.1% of total for derived types.</p>Including implementation: 93 statements, 19.6% of total for derived types.">28 statements</a>
+    title="<p>16.0% of total for derived types.</p>Including implementation: 98 statements, 20.4% of total for derived types.">30 statements</a>
      </li> 
      
      
@@ -189,6 +189,8 @@
       
       <a class="list-group-item" href="../type/geom_t.html#variable-get_rpa_orders">get_rpa_orders</a>
       
+      <a class="list-group-item" href="../type/geom_t.html#variable-mpi_comm">mpi_comm</a>
+      
       <a class="list-group-item" href="../type/geom_t.html#variable-clock_">clock_</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-exc">exc</a>
@@ -211,7 +213,9 @@
       
       <a class="list-group-item" href="../type/geom_t.html#variable-blacs_grid">blacs_grid</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#variable-comm%7E2">comm</a>
+      <a class="list-group-item" href="../type/geom_t.html#variable-mpi_size">mpi_size</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-mpi_rank">mpi_rank</a>
       
     </div>
   </div>
@@ -298,6 +302,8 @@
       
       <a class="list-group-item" href="../type/geom_t.html#variable-get_rpa_orders">get_rpa_orders</a>
       
+      <a class="list-group-item" href="../type/geom_t.html#variable-mpi_comm">mpi_comm</a>
+      
       <a class="list-group-item" href="../type/geom_t.html#variable-clock_">clock_</a>
       
       <a class="list-group-item" href="../type/geom_t.html#variable-exc">exc</a>
@@ -320,7 +326,9 @@
       
       <a class="list-group-item" href="../type/geom_t.html#variable-blacs_grid">blacs_grid</a>
       
-      <a class="list-group-item" href="../type/geom_t.html#variable-comm%7E2">comm</a>
+      <a class="list-group-item" href="../type/geom_t.html#variable-mpi_size">mpi_size</a>
+      
+      <a class="list-group-item" href="../type/geom_t.html#variable-mpi_rank">mpi_rank</a>
       
     </div>
   </div>
@@ -507,6 +515,20 @@
   
 <tr>
   
+  <td><span class="anchor" id="variable-mpi_comm"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mpi_comm</strong></td><td> =</td><td>MPI_COMM_WORLD</td><td><p>MPI communicator</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
   <td><span class="anchor" id="variable-clock_"></span>type(<a href='../type/clock_t.html'>clock_t</a>),</td>
   
   <td>public</td>
@@ -661,11 +683,25 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-comm%7E2"></span>integer,</td>
+  <td><span class="anchor" id="variable-mpi_size"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>comm</strong></td><td> =</td><td>MPI_COMM_WORLD</td><td></td>
+  <td><strong>mpi_size</strong></td><td> =</td><td>-1</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-mpi_rank"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>mpi_rank</strong></td><td> =</td><td>-1</td><td></td>
   
 </tr>
 
