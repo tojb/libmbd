@@ -128,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 9.6% of total for source files.">218 statements</a>
+    title=" 9.5% of total for source files.">224 statements</a>
      </li> 
      
      
@@ -277,7 +277,7 @@
 <a name="ln-12"></a><span class="k">use </span><span class="n">mbd_geom</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">geom_t</span>
 <a name="ln-13"></a><span class="k">use </span><span class="n">mbd_gradients</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">grad_t</span><span class="p">,</span> <span class="n">grad_matrix_re_t</span><span class="p">,</span> <span class="n">grad_matrix_cplx_t</span><span class="p">,</span> <span class="n">grad_request_t</span>
 <a name="ln-14"></a><span class="k">use </span><span class="n">mbd_matrix</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">matrix_re_t</span><span class="p">,</span> <span class="n">matrix_cplx_t</span>
-<a name="ln-15"></a><span class="k">use </span><span class="n">mbd_utils</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">result_t</span><span class="p">,</span> <span class="n">tostr</span>
+<a name="ln-15"></a><span class="k">use </span><span class="n">mbd_utils</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">result_t</span><span class="p">,</span> <span class="n">tostr</span><span class="p">,</span> <span class="n">printer</span>
 <a name="ln-16"></a>
 <a name="ln-17"></a><span class="k">implicit none</span>
 <a name="ln-18"></a>
@@ -410,17 +410,17 @@
 <a name="ln-145"></a>            <span class="s2">&quot; negative eigenvalues&quot;</span>
 <a name="ln-146"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">geom</span><span class="p">%</span><span class="n">param</span><span class="p">%</span><span class="n">zero_negative_eigvals</span><span class="p">)</span> <span class="k">then</span>
 <a name="ln-147"></a><span class="k">            where</span> <span class="p">(</span><span class="n">eigs</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">eigs</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>
-<a name="ln-148"></a>            <span class="c">! call geom%calc%print(msg)</span>
-<a name="ln-149"></a>            <span class="c">! TODO add warning mechanism</span>
-<a name="ln-150"></a>        <span class="k">else</span>
-<a name="ln-151"></a><span class="k">            </span><span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">code</span> <span class="o">=</span> <span class="n">MBD_EXC_NEG_EIGVALS</span>
-<a name="ln-152"></a>            <span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
-<a name="ln-153"></a>            <span class="k">return</span>
-<a name="ln-154"></a><span class="k">        end if</span>
-<a name="ln-155"></a><span class="k">    end if</span>
-<a name="ln-156"></a><span class="k">    </span><span class="n">res</span><span class="p">%</span><span class="n">energy</span> <span class="o">=</span> <span class="mi">1</span><span class="n">d0</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">eigs</span><span class="p">))</span><span class="o">-</span><span class="mi">3</span><span class="n">d0</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
-<a name="ln-157"></a>    <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">grad</span><span class="p">%</span><span class="nb">any</span><span class="p">())</span> <span class="k">return</span>
-<a name="ln-158"></a><span class="k">    call </span><span class="n">c_lambda12i_c</span><span class="p">%</span><span class="n">copy_from</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span>
+<a name="ln-148"></a>            <span class="k">call </span><span class="n">printer</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<a name="ln-149"></a>        <span class="k">else</span>
+<a name="ln-150"></a><span class="k">            </span><span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">code</span> <span class="o">=</span> <span class="n">MBD_EXC_NEG_EIGVALS</span>
+<a name="ln-151"></a>            <span class="n">geom</span><span class="p">%</span><span class="n">exc</span><span class="p">%</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
+<a name="ln-152"></a>            <span class="k">return</span>
+<a name="ln-153"></a><span class="k">        end if</span>
+<a name="ln-154"></a><span class="k">    end if</span>
+<a name="ln-155"></a><span class="k">    </span><span class="n">res</span><span class="p">%</span><span class="n">energy</span> <span class="o">=</span> <span class="mi">1</span><span class="n">d0</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">eigs</span><span class="p">))</span><span class="o">-</span><span class="mi">3</span><span class="n">d0</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+<a name="ln-156"></a>    <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span> <span class="n">grad</span><span class="p">%</span><span class="nb">any</span><span class="p">())</span> <span class="k">return</span>
+<a name="ln-157"></a><span class="k">    call </span><span class="n">geom</span><span class="p">%</span><span class="n">clock</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<a name="ln-158"></a>    <span class="k">call </span><span class="n">c_lambda12i_c</span><span class="p">%</span><span class="n">copy_from</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span>
 <a name="ln-159"></a>    <span class="k">call </span><span class="n">c_lambda12i_c</span><span class="p">%</span><span class="n">mult_cols_3n</span><span class="p">(</span><span class="n">eigs</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">d0</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
 <a name="ln-160"></a>    <span class="n">c_lambda12i_c</span> <span class="o">=</span> <span class="n">c_lambda12i_c</span><span class="p">%</span><span class="n">mmul</span><span class="p">(</span><span class="n">c_lambda12i_c</span><span class="p">,</span> <span class="n">transB</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 <a name="ln-161"></a><span class="cp">#if MBD_TYPE == 1</span>
@@ -479,16 +479,17 @@
 <a name="ln-214"></a>        <span class="k">end do</span>
 <a name="ln-215"></a><span class="k">    end if</span>
 <a name="ln-216"></a><span class="cp">#endif</span>
-<a name="ln-217"></a><span class="k">end function</span>
-<a name="ln-218"></a>
-<a name="ln-219"></a><span class="cp">#if MBD_TYPE == 0</span>
-<a name="ln-220"></a><span class="cp">#   undef MBD_TYPE</span>
-<a name="ln-221"></a><span class="cp">#   define MBD_TYPE 1</span>
-<a name="ln-222"></a><span class="cp">#   include &quot;mbd_hamiltonian.F90&quot;</span>
-<a name="ln-223"></a>
-<a name="ln-224"></a><span class="k">end module</span>
-<a name="ln-225"></a>
-<a name="ln-226"></a><span class="cp">#endif</span>
+<a name="ln-217"></a>    <span class="k">call </span><span class="n">geom</span><span class="p">%</span><span class="n">clock</span><span class="p">(</span><span class="o">-</span><span class="mi">25</span><span class="p">)</span>
+<a name="ln-218"></a><span class="k">end function</span>
+<a name="ln-219"></a>
+<a name="ln-220"></a><span class="cp">#if MBD_TYPE == 0</span>
+<a name="ln-221"></a><span class="cp">#   undef MBD_TYPE</span>
+<a name="ln-222"></a><span class="cp">#   define MBD_TYPE 1</span>
+<a name="ln-223"></a><span class="cp">#   include &quot;mbd_hamiltonian.F90&quot;</span>
+<a name="ln-224"></a>
+<a name="ln-225"></a><span class="k">end module</span>
+<a name="ln-226"></a>
+<a name="ln-227"></a><span class="cp">#endif</span>
 </pre></div>
 
     </section>
