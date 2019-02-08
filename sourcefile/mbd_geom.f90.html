@@ -335,7 +335,7 @@
 <a name="ln-70"></a><span class="cp">#endif</span>
 <a name="ln-71"></a>    <span class="c">! The following components are set by the initializer and should be</span>
 <a name="ln-72"></a>    <span class="c">! considered read-only</span>
-<a name="ln-73"></a>    <span class="k">type</span><span class="p">(</span><span class="n">clock_t</span><span class="p">)</span> <span class="kd">::</span> <span class="n">clock_</span>
+<a name="ln-73"></a>    <span class="k">type</span><span class="p">(</span><span class="n">clock_t</span><span class="p">)</span> <span class="kd">::</span> <span class="n">timer</span>
 <a name="ln-74"></a>    <span class="k">type</span><span class="p">(</span><span class="n">exception_t</span><span class="p">)</span> <span class="kd">::</span> <span class="n">exc</span>
 <a name="ln-75"></a>    <span class="kt">logical</span> <span class="kd">::</span> <span class="n">muted</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <a name="ln-76"></a>    <span class="k">type</span><span class="p">(</span><span class="n">quad_pt_t</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">freq</span><span class="p">(:)</span>
@@ -378,7 +378,7 @@
 <a name="ln-113"></a>    <span class="k">end associate</span>
 <a name="ln-114"></a><span class="k">    </span><span class="n">this</span><span class="p">%</span><span class="n">freq</span><span class="p">(</span><span class="mi">0</span><span class="p">)%</span><span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>
 <a name="ln-115"></a>    <span class="n">this</span><span class="p">%</span><span class="n">freq</span><span class="p">(</span><span class="mi">0</span><span class="p">)%</span><span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>
-<a name="ln-116"></a>    <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">clock_</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a name="ln-116"></a>    <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">timer</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <a name="ln-117"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">lattice</span><span class="p">))</span> <span class="k">then</span>
 <a name="ln-118"></a><span class="k">        </span><span class="n">volume</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">dble</span><span class="p">(</span><span class="nb">product</span><span class="p">(</span><span class="n">eigvals</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">lattice</span><span class="p">))))</span>
 <a name="ln-119"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">param</span><span class="p">%</span><span class="n">ewald_on</span><span class="p">)</span> <span class="k">then</span>
@@ -430,8 +430,8 @@
 <a name="ln-165"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">idx</span><span class="p">%</span><span class="n">parallel</span><span class="p">)</span> <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">blacs_grid</span><span class="p">%</span><span class="n">destroy</span><span class="p">()</span>
 <a name="ln-166"></a><span class="cp">#endif</span>
 <a name="ln-167"></a>    <span class="k">deallocate</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">freq</span><span class="p">)</span>
-<a name="ln-168"></a>    <span class="k">deallocate</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">clock_</span><span class="p">%</span><span class="n">timestamps</span><span class="p">)</span>
-<a name="ln-169"></a>    <span class="k">deallocate</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">clock_</span><span class="p">%</span><span class="n">counts</span><span class="p">)</span>
+<a name="ln-168"></a>    <span class="k">deallocate</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">timer</span><span class="p">%</span><span class="n">timestamps</span><span class="p">)</span>
+<a name="ln-169"></a>    <span class="k">deallocate</span> <span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">timer</span><span class="p">%</span><span class="n">counts</span><span class="p">)</span>
 <a name="ln-170"></a><span class="k">end subroutine</span>
 <a name="ln-171"></a>
 <a name="ln-172"></a><span class="kt">integer </span><span class="k">function </span><span class="n">geom_siz</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">siz</span><span class="p">)</span>
@@ -468,7 +468,7 @@
 <a name="ln-203"></a>    <span class="k">class</span><span class="p">(</span><span class="n">geom_t</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
 <a name="ln-204"></a>    <span class="kt">integer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">id</span>
 <a name="ln-205"></a>
-<a name="ln-206"></a>    <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">clock_</span><span class="p">%</span><span class="n">clock</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<a name="ln-206"></a>    <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">timer</span><span class="p">%</span><span class="n">clock</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
 <a name="ln-207"></a><span class="k">end subroutine</span>
 <a name="ln-208"></a>
 <a name="ln-209"></a><span class="k">subroutine </span><span class="n">get_freq_grid</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
