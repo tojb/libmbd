@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pymbd.fortran &#8212; libmbd 0.4.2 documentation</title>
+    <title>pymbd.fortran &#8212; libmbd 0.4.3 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -130,7 +130,7 @@
 <div class="viewcode-block" id="MBDCalc.mbd_energy"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDCalc.mbd_energy">[docs]</a>    <span class="k">def</span> <span class="nf">mbd_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span>
                    <span class="n">lattice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">a</span><span class="o">=</span><span class="mf">6.</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s1">&#39;mbd_rsscs_energy&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                   <span class="n">damping</span><span class="o">=</span><span class="s1">&#39;fermi,dip&#39;</span><span class="p">,</span> <span class="n">spectrum</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                   <span class="n">damping</span><span class="o">=</span><span class="s1">&#39;fermi,dip&#39;</span><span class="p">,</span> <span class="n">spectrum</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rpa_orders</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate an MBD energy.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -150,7 +150,7 @@
         <span class="p">)</span>
         <span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_atoms</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="k">if</span> <span class="n">force</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="n">latt_gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="k">if</span> <span class="n">force</span> <span class="ow">and</span> <span class="n">lattice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
-        <span class="n">eigs</span><span class="p">,</span> <span class="n">modes</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="n">eigs</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">orders</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
         <span class="n">args</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">geom</span><span class="p">,</span>
             <span class="n">n_atoms</span><span class="p">,</span>
@@ -165,12 +165,18 @@
                 <span class="n">eigs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">)</span>
                 <span class="n">modes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">n_atoms</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
             <span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="n">_cast</span><span class="p">(</span><span class="s1">&#39;double*&#39;</span><span class="p">,</span> <span class="n">eigs</span><span class="p">),</span> <span class="n">_cast</span><span class="p">(</span><span class="s1">&#39;double*&#39;</span><span class="p">,</span> <span class="n">modes</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">func</span> <span class="o">==</span> <span class="s1">&#39;rpa_energy&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rpa_orders</span><span class="p">:</span>
+                <span class="n">orders</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="n">_cast</span><span class="p">(</span><span class="s1">&#39;double*&#39;</span><span class="p">,</span> <span class="n">orders</span><span class="p">),)</span>
         <span class="n">ene</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_lib</span><span class="p">,</span> <span class="s1">&#39;cmbd_&#39;</span> <span class="o">+</span> <span class="n">func</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_destroy_damping</span><span class="p">(</span><span class="n">damping</span><span class="p">)</span>
         <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_destroy_geom</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_exc</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">spectrum</span><span class="p">:</span>
             <span class="n">ene</span> <span class="o">=</span> <span class="n">ene</span><span class="p">,</span> <span class="n">eigs</span><span class="p">,</span> <span class="n">modes</span>
+        <span class="k">elif</span> <span class="n">rpa_orders</span><span class="p">:</span>
+            <span class="n">ene</span> <span class="o">=</span> <span class="n">ene</span><span class="p">,</span> <span class="n">orders</span>
         <span class="k">if</span> <span class="n">force</span><span class="p">:</span>
             <span class="n">gradients</span> <span class="o">=</span> <span class="p">(</span><span class="n">gradients</span><span class="p">,)</span>
             <span class="k">if</span> <span class="n">lattice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>

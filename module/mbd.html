@@ -128,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 8.6% of total for modules and submodules.">201 statements</a>
+    title=" 8.9% of total for modules and submodules.">209 statements</a>
      </li> 
      
      
@@ -403,6 +403,34 @@
   <td>public</td>
   <td></td><td>::</td>
   <td><strong>calculate_spectrum</strong></td><td> =</td><td>.false.</td><td><p>Whether to keep MBD eigenvalues.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-do_rpa"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>do_rpa</strong></td><td> =</td><td>.false.</td><td><p>Whether to evalulate the MBD energy as an RPA integral over frequency.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-rpa_orders"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>rpa_orders</strong></td><td> =</td><td>.false.</td><td><p>Whether to calculate individual RPA orders</p></td>
   
 </tr>
 
@@ -720,6 +748,9 @@
        <td></td></tr>
       
        <tr><td>procedure, public :: <strong><a href='../type/mbd_calc_t.html#boundprocedure-get_spectrum_modes'>get_spectrum_modes</a></strong>  => mbd_calc_get_spectrum_modes </td>
+       <td></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/mbd_calc_t.html#boundprocedure-get_rpa_orders'>get_rpa_orders</a></strong>  => mbd_calc_get_rpa_orders </td>
        <td></td></tr>
       
        <tr><td>procedure, public :: <strong><a href='../type/mbd_calc_t.html#boundprocedure-get_exception'>get_exception</a></strong>  => mbd_calc_get_exception </td>

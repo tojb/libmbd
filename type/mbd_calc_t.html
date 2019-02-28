@@ -128,7 +128,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p>13.7% of total for derived types.</p>Including implementation: 163 statements, 30.9% of total for derived types.">26 statements</a>
+    title="<p>14.0% of total for derived types.</p>Including implementation: 169 statements, 31.5% of total for derived types.">27 statements</a>
      </li> 
      
      
@@ -211,6 +211,8 @@
       
       <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_spectrum_modes">get_spectrum_modes</a>
       
+      <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_rpa_orders">get_rpa_orders</a>
+      
       <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_exception">get_exception</a>
       
     </div>
@@ -282,6 +284,8 @@
       <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_lattice_derivs">get_lattice_derivs</a>
       
       <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_spectrum_modes">get_spectrum_modes</a>
+      
+      <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_rpa_orders">get_rpa_orders</a>
       
       <a class="list-group-item" href="../type/mbd_calc_t.html#boundprocedure-get_exception">get_exception</a>
       
@@ -1210,7 +1214,7 @@ private subroutine mbd_calc_get_spectrum_modes(this, spectrum, modes)
 <p>The spectrum is actually calculated together with the energy, so a call
  to this method must be preceeded by a call to
  <a href="../type/mbd_calc_t.html#boundprocedure-evaluate_vdw_method">evaluate_vdw_method</a>.  For the same reason, the
- spectrum must be requested prior to this called via
+ spectrum must be requested prior to this call via
  <a href="../type/mbd_input_t.html#variable-calculate_spectrum">calculate_spectrum</a>.</p>
     
     <h4>Arguments</h4>
@@ -1276,6 +1280,94 @@ private subroutine mbd_calc_get_spectrum_modes(this, spectrum, modes)
  transfers allocation from the internal state to the argument. For
  this reason, the method can be called only once wih this optional
  argument per calculation.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+        
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_rpa_orders"></span><h3>procedure, public :: <strong>get_rpa_orders</strong>  => mbd_calc_get_rpa_orders 
+    
+  </h3></div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+        
+          
+    
+    <h3>
+private subroutine mbd_calc_get_rpa_orders(this, rpa_orders)
+    
+    
+   
+</h3>
+    
+
+
+
+<p>Provide RPA orders if they were requested in the MBD input.</p>
+<p>The orders are actually calculated together with the energy, so a call
+ to this method must be preceeded by a call to
+ <a href="../type/mbd_calc_t.html#boundprocedure-evaluate_vdw_method">evaluate_vdw_method</a>. For the same reason, the
+ spectrum must be requested prior to this call via
+ <a href="../type/mbd_input_t.html#variable-do_rpa">do_rpa</a> and <a href="../type/mbd_input_t.html#variable-rpa_orders">rpa_orders</a>.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/mbd_calc_t.html'>mbd_calc_t</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>rpa_orders</strong>(:)</td><td><p>(a.u.) MBD energy decomposed to RPA orders.</p></td>
   
 </tr>
 
