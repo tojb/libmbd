@@ -68,6 +68,36 @@
 </div>
 <div class="section" id="module-pymbd.fortran">
 <span id="fortran-bindings"></span><h2>Fortran bindings<a class="headerlink" href="#module-pymbd.fortran" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pymbd.fortran.MBDGeom">
+<em class="property">class </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDGeom</code><span class="sig-paren">(</span><em>coords</em>, <em>lattice=None</em>, <em>k_grid=None</em>, <em>n_freq=15</em>, <em>do_rpa=False</em>, <em>get_spectrum=False</em>, <em>get_rpa_orders=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents an initialized Libmbd geom_t object.</p>
+<dl class="method">
+<dt id="pymbd.fortran.MBDGeom.mbd_energy">
+<code class="descname">mbd_energy</code><span class="sig-paren">(</span><em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>beta</em>, <em>a=6.0</em>, <em>damping='fermi</em>, <em>dip'</em>, <em>variant='rsscs'</em>, <em>force=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom.mbd_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom.mbd_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an MBD energy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymbd.fortran.MBDGeom.mbd_energy_species">
+<code class="descname">mbd_energy_species</code><span class="sig-paren">(</span><em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom.mbd_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom.mbd_energy_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate an MBD energy from atom types and Hirshfed-volume ratios.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymbd.fortran.MBDGeom.ts_energy">
+<code class="descname">ts_energy</code><span class="sig-paren">(</span><em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>sR</em>, <em>d=20.0</em>, <em>damping='fermi'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom.ts_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom.ts_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a TS energy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymbd.fortran.MBDGeom.ts_energy_species">
+<code class="descname">ts_energy_species</code><span class="sig-paren">(</span><em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom.ts_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom.ts_energy_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a TS energy from atom types and Hirshfed-volume ratios.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="exception">
 <dt id="pymbd.fortran.MBDFortranException">
 <em class="property">exception </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDFortranException</code><span class="sig-paren">(</span><em>code</em>, <em>origin</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDFortranException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDFortranException" title="Permalink to this definition">¶</a></dt>

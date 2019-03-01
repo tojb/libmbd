@@ -48,7 +48,7 @@
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Pymbd C extension unimportable, cannot use Fortran&#39;</span><span class="p">)</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MBDCalc&#39;</span><span class="p">,</span> <span class="s1">&#39;MBDFortranException&#39;</span><span class="p">,</span> <span class="s1">&#39;with_mpi&#39;</span><span class="p">,</span> <span class="s1">&#39;with_scalapack&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MBDGeom&#39;</span><span class="p">,</span> <span class="s1">&#39;MBDFortranException&#39;</span><span class="p">,</span> <span class="s1">&#39;with_mpi&#39;</span><span class="p">,</span> <span class="s1">&#39;with_scalapack&#39;</span><span class="p">]</span>
 
 <span class="n">with_mpi</span> <span class="o">=</span> <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_with_mpi</span>
 <span class="sd">&quot;&quot;&quot;Whether Libmbd was compiled with MPI&quot;&quot;&quot;</span>
@@ -77,7 +77,7 @@
     <span class="k">return</span> <span class="n">wrapper</span>
 
 
-<span class="k">class</span> <span class="nc">MBDGeom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="MBDGeom"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom">[docs]</a><span class="k">class</span> <span class="nc">MBDGeom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents an initialized Libmbd geom_t object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -139,7 +139,7 @@
     <span class="k">def</span> <span class="nf">lattice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lattice</span><span class="p">):</span>
         <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_update_lattice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_geom_f</span><span class="p">,</span> <span class="n">_cast</span><span class="p">(</span><span class="s1">&#39;double*&#39;</span><span class="p">,</span> <span class="n">_array</span><span class="p">(</span><span class="n">lattice</span><span class="p">)))</span>
 
-    <span class="nd">@_auto_context</span>
+<div class="viewcode-block" id="MBDGeom.ts_energy"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.ts_energy">[docs]</a>    <span class="nd">@_auto_context</span>
     <span class="k">def</span> <span class="nf">ts_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">sR</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">20.</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="s1">&#39;fermi&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate a TS energy.</span>
@@ -156,9 +156,9 @@
         <span class="p">)</span>
         <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_destroy_damping</span><span class="p">(</span><span class="n">damping_f</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_exc</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">ene</span>
+        <span class="k">return</span> <span class="n">ene</span></div>
 
-    <span class="nd">@_auto_context</span>
+<div class="viewcode-block" id="MBDGeom.mbd_energy"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.mbd_energy">[docs]</a>    <span class="nd">@_auto_context</span>
     <span class="k">def</span> <span class="nf">mbd_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">6.</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="s1">&#39;fermi,dip&#39;</span><span class="p">,</span> <span class="n">variant</span><span class="o">=</span><span class="s1">&#39;rsscs&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate an MBD energy.</span>
@@ -206,7 +206,7 @@
             <span class="n">ene</span> <span class="o">=</span> <span class="p">(</span><span class="n">ene</span><span class="p">,</span> <span class="n">gradients</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lattice</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">ene</span> <span class="o">+=</span> <span class="p">(</span><span class="n">lattice_gradients</span><span class="p">,)</span>
-        <span class="k">return</span> <span class="n">ene</span>
+        <span class="k">return</span> <span class="n">ene</span></div>
 
     <span class="nd">@_auto_context</span>
     <span class="k">def</span> <span class="nf">dipole_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">damping</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">k_point</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">R_vdw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">6.</span><span class="p">):</span>
@@ -232,19 +232,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_exc</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">dipmat</span>
 
-    <span class="k">def</span> <span class="nf">mbd_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="MBDGeom.mbd_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.mbd_energy_species">[docs]</a>    <span class="k">def</span> <span class="nf">mbd_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate an MBD energy from atom types and Hirshfed-volume ratios.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mbd_energy</span><span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mbd_energy</span><span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">ts_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="MBDGeom.ts_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.ts_energy_species">[docs]</a>    <span class="k">def</span> <span class="nf">ts_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate a TS energy from atom types and Hirshfed-volume ratios.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ts_energy</span><span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ts_energy</span><span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
     <span class="nd">@_auto_context</span>
     <span class="k">def</span> <span class="nf">dipole_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">w_t</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">r_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
@@ -280,7 +280,7 @@
             <span class="n">_cast</span><span class="p">(</span><span class="s1">&#39;double*&#39;</span><span class="p">,</span> <span class="n">C</span><span class="p">),</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_exc</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">res</span></div>
 
 
 
