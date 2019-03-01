@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>API &#8212; libmbd 0.4.3 documentation</title>
+    <title>API &#8212; libmbd 0.5.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -68,36 +68,6 @@
 </div>
 <div class="section" id="module-pymbd.fortran">
 <span id="fortran-bindings"></span><h2>Fortran bindings<a class="headerlink" href="#module-pymbd.fortran" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="pymbd.fortran.MBDCalc">
-<em class="property">class </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDCalc</code><span class="sig-paren">(</span><em>n_freq=15</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents an initialized Libmbd Fortran library.</p>
-<dl class="method">
-<dt id="pymbd.fortran.MBDCalc.mbd_energy">
-<code class="descname">mbd_energy</code><span class="sig-paren">(</span><em>coords</em>, <em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>beta</em>, <em>lattice=None</em>, <em>k_grid=None</em>, <em>a=6.0</em>, <em>func='mbd_rsscs_energy'</em>, <em>force=False</em>, <em>damping='fermi</em>, <em>dip'</em>, <em>spectrum=False</em>, <em>rpa_orders=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.mbd_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.mbd_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate an MBD energy.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pymbd.fortran.MBDCalc.mbd_energy_species">
-<code class="descname">mbd_energy_species</code><span class="sig-paren">(</span><em>coords</em>, <em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.mbd_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.mbd_energy_species" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate an MBD energy from atom types and Hirshfed-volume ratios.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pymbd.fortran.MBDCalc.ts_energy">
-<code class="descname">ts_energy</code><span class="sig-paren">(</span><em>coords</em>, <em>alpha_0</em>, <em>C6</em>, <em>R_vdw</em>, <em>sR</em>, <em>lattice=None</em>, <em>d=20.0</em>, <em>damping='fermi'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.ts_energy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.ts_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a TS energy.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pymbd.fortran.MBDCalc.ts_energy_species">
-<code class="descname">ts_energy_species</code><span class="sig-paren">(</span><em>coords</em>, <em>species</em>, <em>vols</em>, <em>beta</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDCalc.ts_energy_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDCalc.ts_energy_species" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate a TS energy from atom types and Hirshfed-volume ratios.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="exception">
 <dt id="pymbd.fortran.MBDFortranException">
 <em class="property">exception </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDFortranException</code><span class="sig-paren">(</span><em>code</em>, <em>origin</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDFortranException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDFortranException" title="Permalink to this definition">¶</a></dt>
