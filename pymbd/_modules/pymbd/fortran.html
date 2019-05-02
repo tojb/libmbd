@@ -79,7 +79,7 @@
 
 
 <div class="viewcode-block" id="MBDGeom"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom">[docs]</a><span class="k">class</span> <span class="nc">MBDGeom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Represents an initialized Libmbd geom_t object.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Represents an initialized Libmbd `geom_t &lt;../type/geom_t.html&gt;`_ object.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -135,7 +135,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">coords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Atom coordinates as numpy array.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;(a.u.) Atom coordinates in rows.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coords</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="nd">@coords</span><span class="o">.</span><span class="n">setter</span>
@@ -144,7 +144,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">lattice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Lattice vectors as numpy array.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;(a.u.) Lattice vectors in rows.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lattice</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="nd">@lattice</span><span class="o">.</span><span class="n">setter</span>
@@ -157,7 +157,15 @@
 
 <div class="viewcode-block" id="MBDGeom.ts_energy"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.ts_energy">[docs]</a>    <span class="nd">@_auto_context</span>
     <span class="k">def</span> <span class="nf">ts_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">sR</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">damping</span><span class="o">=</span><span class="s1">&#39;fermi&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate a TS energy.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Calculate a TS energy.</span>
+
+<span class="sd">        :param array-like alpha_0: (a.u.) atomic polarizabilities</span>
+<span class="sd">        :param array-like C6: (a.u.) atomic :math:`C_6` coefficients</span>
+<span class="sd">        :param array-like R_vdw: (a.u.) atomic vdW radii</span>
+<span class="sd">        :param float sR: TS damping parameter :math:`s_R`</span>
+<span class="sd">        :param float d: TS damping parameter :math:`d`</span>
+<span class="sd">        :param damping str: type of damping</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">_array</span><span class="p">,</span> <span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">))</span>
         <span class="n">damping_f</span> <span class="o">=</span> <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_init_damping</span><span class="p">(</span>
             <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">damping</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">_cast</span><span class="p">(</span><span class="s1">&#39;double*&#39;</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">),</span> <span class="n">_ffi</span><span class="o">.</span><span class="n">NULL</span><span class="p">,</span> <span class="n">sR</span><span class="p">,</span> <span class="n">d</span>
@@ -181,7 +189,17 @@
         <span class="n">variant</span><span class="o">=</span><span class="s1">&#39;rsscs&#39;</span><span class="p">,</span>
         <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate an MBD energy.&quot;&quot;&quot;</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an MBD energy.</span>
+
+<span class="sd">        :param array-like alpha_0: (a.u.) atomic polarizabilities</span>
+<span class="sd">        :param array-like C6: (a.u.) atomic :math:`C_6` coefficients</span>
+<span class="sd">        :param array-like R_vdw: (a.u.) atomic vdW radii</span>
+<span class="sd">        :param float beta: MBD damping parameter :math:`\beta`</span>
+<span class="sd">        :param float a: MBD damping parameter :math:`a`</span>
+<span class="sd">        :param damping str: type of damping</span>
+<span class="sd">        :param variant str: one of &#39;plain&#39;, &#39;scs&#39;, &#39;rsscs&#39;</span>
+<span class="sd">        :param force bool: if True, calculate energy gradients</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">_array</span><span class="p">,</span> <span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">))</span>
         <span class="n">n_atoms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">damping_f</span> <span class="o">=</span> <span class="n">_lib</span><span class="o">.</span><span class="n">cmbd_init_damping</span><span class="p">(</span>
@@ -273,14 +291,28 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_exc</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">dipmat</span>
 
-<div class="viewcode-block" id="MBDGeom.mbd_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.mbd_energy_species">[docs]</a>    <span class="k">def</span> <span class="nf">mbd_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate an MBD energy from atom types and Hirshfed-volume ratios.&quot;&quot;&quot;</span>
-        <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">)</span>
+<div class="viewcode-block" id="MBDGeom.mbd_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.mbd_energy_species">[docs]</a>    <span class="k">def</span> <span class="nf">mbd_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">volume_ratios</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an MBD energy from atom types and Hirshfed-volume ratios.</span>
+
+<span class="sd">        :param array-like species: atom types (elements)</span>
+<span class="sd">        :param array-like volume_ratios: ratios of Hirshfeld volumes in</span>
+<span class="sd">            molecule and vacuum</span>
+<span class="sd">        :param float beta: MBD damping parameter :math:`\beta`</span>
+<span class="sd">        :param kwargs: see :meth:`mbd_energy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">volume_ratios</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mbd_energy</span><span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MBDGeom.ts_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.ts_energy_species">[docs]</a>    <span class="k">def</span> <span class="nf">ts_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Calculate a TS energy from atom types and Hirshfed-volume ratios.&quot;&quot;&quot;</span>
-        <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">)</span>
+<div class="viewcode-block" id="MBDGeom.ts_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.fortran.MBDGeom.ts_energy_species">[docs]</a>    <span class="k">def</span> <span class="nf">ts_energy_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">volume_ratios</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate a TS energy from atom types and Hirshfed-volume ratios.</span>
+
+<span class="sd">        :param array-like species: atom types (elements)</span>
+<span class="sd">        :param array-like volume_ratios: ratios of Hirshfeld volumes in</span>
+<span class="sd">            molecule and vacuum</span>
+<span class="sd">        :param float sR: TS damping parameter :math:`s_R`</span>
+<span class="sd">        :param kwargs: see :meth:`ts_energy`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">volume_ratios</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ts_energy</span><span class="p">(</span><span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
     <span class="nd">@_auto_context</span>

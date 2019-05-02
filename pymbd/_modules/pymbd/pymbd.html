@@ -49,14 +49,22 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mbd_energy&#39;</span><span class="p">,</span> <span class="s1">&#39;mbd_energy_species&#39;</span><span class="p">,</span> <span class="s1">&#39;screening&#39;</span><span class="p">,</span> <span class="s1">&#39;ang&#39;</span><span class="p">]</span>
 
 <span class="n">ang</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">0.529177249</span>
-<span class="sd">&quot;&quot;&quot;Value of an angstrom in atomic units.&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;(a.u.) angstrom&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="screening"><a class="viewcode-back" href="../../api.html#pymbd.screening">[docs]</a><span class="k">def</span> <span class="nf">screening</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">lattice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nfreq</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Screen atomic polarizabilities.</span>
 
+<span class="sd">    :param array-like coords: (a.u.) atom coordinates in rows</span>
+<span class="sd">    :param array-like alpha_0: (a.u.) atomic polarizabilities</span>
+<span class="sd">    :param array-like C6: (a.u.) atomic :math:`C_6` coefficients</span>
+<span class="sd">    :param array-like R_vdw: (a.u.) atomic vdW radii</span>
+<span class="sd">    :param float beta: MBD damping parameter :math:`\beta`</span>
+<span class="sd">    :param array-like lattice: (a.u.) lattice vectors in rows</span>
+<span class="sd">    :param int nfreq: number of grid points for frequency quadrature</span>
+
 <span class="sd">    Returns static polarizabilities, :math:`C_6` coefficients, and</span>
-<span class="sd">    :math:`R_\mathrm{vdw}` coefficients.</span>
+<span class="sd">    :math:`R_\mathrm{vdw}` coefficients (a.u.).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">freq</span><span class="p">,</span> <span class="n">freq_w</span> <span class="o">=</span> <span class="n">freq_grid</span><span class="p">(</span><span class="n">nfreq</span><span class="p">)</span>
     <span class="n">omega</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">C6</span> <span class="o">/</span> <span class="n">alpha_0</span> <span class="o">**</span> <span class="mi">2</span>
@@ -77,7 +85,17 @@
 
 
 <div class="viewcode-block" id="mbd_energy"><a class="viewcode-back" href="../../api.html#pymbd.mbd_energy">[docs]</a><span class="k">def</span> <span class="nf">mbd_energy</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">lattice</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nfreq</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate an MBD energy.&quot;&quot;&quot;</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an MBD energy.</span>
+
+<span class="sd">    :param array-like coords: (a.u.) atom coordinates in rows</span>
+<span class="sd">    :param array-like alpha_0: (a.u.) atomic polarizabilities</span>
+<span class="sd">    :param array-like C6: (a.u.) atomic :math:`C_6` coefficients</span>
+<span class="sd">    :param array-like R_vdw: (a.u.) atomic vdW radii</span>
+<span class="sd">    :param float beta: MBD damping parameter :math:`\beta`</span>
+<span class="sd">    :param array-like lattice: (a.u.) lattice vectors in rows</span>
+<span class="sd">    :param array-like k_grid: number of :math:`k`-points along reciprocal axes</span>
+<span class="sd">    :param int nfreq: number of grid points for frequency quadrature</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">coords</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">lattice</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span>
         <span class="n">_array</span><span class="p">,</span> <span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">lattice</span><span class="p">)</span>
     <span class="p">)</span>
@@ -110,9 +128,16 @@
     <span class="k">return</span> <span class="n">ene</span></div>
 
 
-<div class="viewcode-block" id="mbd_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.mbd_energy_species">[docs]</a><span class="k">def</span> <span class="nf">mbd_energy_species</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate an MBD energy from atom types and Hirshfed-volume ratios.&quot;&quot;&quot;</span>
-    <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">vols</span><span class="p">)</span>
+<div class="viewcode-block" id="mbd_energy_species"><a class="viewcode-back" href="../../api.html#pymbd.mbd_energy_species">[docs]</a><span class="k">def</span> <span class="nf">mbd_energy_species</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">volume_ratios</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate an MBD energy from atom types and Hirshfed-volume ratios.</span>
+
+<span class="sd">    :param array-like coords: (a.u.) atom coordinates in rows</span>
+<span class="sd">    :param array-like species: atom types (elements)</span>
+<span class="sd">    :param array-like volume_ratios: ratios of Hirshfeld volumes in molecule and vacuum</span>
+<span class="sd">    :param float beta: MBD damping parameter :math:`\beta`</span>
+<span class="sd">    :param kwargs: see :func:`mbd_energy`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span> <span class="o">=</span> <span class="n">from_volumes</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">volume_ratios</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">mbd_energy</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">alpha_0</span><span class="p">,</span> <span class="n">C6</span><span class="p">,</span> <span class="n">R_vdw</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
