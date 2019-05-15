@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>API &#8212; libmbd 0.6.0 documentation</title>
+    <title>API &#8212; libmbd 0.7.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -106,8 +106,23 @@
 <span id="fortran-bindings"></span><h2>Fortran bindings<a class="headerlink" href="#module-pymbd.fortran" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="pymbd.fortran.MBDGeom">
-<em class="property">class </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDGeom</code><span class="sig-paren">(</span><em>coords</em>, <em>lattice=None</em>, <em>k_grid=None</em>, <em>custom_k_pts=None</em>, <em>n_freq=15</em>, <em>do_rpa=False</em>, <em>get_spectrum=False</em>, <em>get_rpa_orders=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">pymbd.fortran.</code><code class="descname">MBDGeom</code><span class="sig-paren">(</span><em>coords</em>, <em>lattice=None</em>, <em>k_grid=None</em>, <em>custom_k_pts=None</em>, <em>n_freq=15</em>, <em>do_rpa=False</em>, <em>get_spectrum=False</em>, <em>get_rpa_orders=False</em>, <em>rpa_rescale_eigs=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pymbd/fortran.html#MBDGeom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pymbd.fortran.MBDGeom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents an initialized Libmbd <a class="reference external" href="../type/geom_t.html">geom_t</a> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coords</strong> (<em>array-like</em>) – (a.u.) atomic coordinates as rows</p></li>
+<li><p><strong>lattice</strong> (<em>array-like</em>) – (a.u.) lattice vectors as rows</p></li>
+<li><p><strong>k_grid</strong> (<em>array-like</em>) – number of <span class="math notranslate nohighlight">\(k\)</span>-points per reciprocal lattice vector</p></li>
+<li><p><strong>custom_k_pts</strong> (<em>array-like</em>) – (a.u.) custom <span class="math notranslate nohighlight">\(k\)</span>-points as rows</p></li>
+<li><p><strong>n_freq</strong> (<em>int</em>) – number of quadrature points for frequency integration</p></li>
+<li><p><strong>do_rpa</strong> (<em>bool</em>) – whether to calculate MBD energy via frequency integration</p></li>
+<li><p><strong>get_spectrum</strong> (<em>bool</em>) – whether to return eigenvalues and eigenvectors</p></li>
+<li><p><strong>get_rpa_orders</strong> (<em>bool</em>) – whether to return RPA order decomposition</p></li>
+<li><p><strong>rpa_rescale_eigs</strong> (<em>bool</em>) – whether to rescale RPA eigenvalues</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="pymbd.fortran.MBDGeom.coords">
 <code class="descname">coords</code><a class="headerlink" href="#pymbd.fortran.MBDGeom.coords" title="Permalink to this definition">¶</a></dt>
