@@ -47,27 +47,26 @@ pip install pymbd --install-option="--no-ext"
 
 ## Installing Libmbd
 
-Libmbd uses CMake for building and installation, and requires a Fortran compiler, LAPACK, and optionally ScaLAPACK/MPI.
-
-On Ubuntu:
+Recent releases of conda (2019) may now compile themselves with other compiler versions than the versions on the system that conda is installed on, which means that e.g. the libblas.so in conda might be incompatible with the system libgfortran.so.  No problem! Just install conda's own copies of gfortran, mpi, etc.  Instructions for this are:
 
 ```bash
-apt-get install gfortran libblas-dev liblapack-dev [mpi-default-dev mpi-default-bin libscalapack-mpi-dev]
+conda install -c conda-forge fortran-compiler
+conda install -c conda-forge mpi4py
+conda install -c conda-forge openmpi-mpifort
 ```
 
-On macOS:
+Providing you can make sure that conda's mpifort (~/anaconda3/bin/mpifort) and not the system mpifort are on-path you can then build with cmake following the instructions below:
 
-```bash
-brew install gcc [open-mpi scalapack]
-```
-
-The building and installation can then proceed with
 
 ```
 git clone https://github.com/jhrmnn/libmbd.git && cd libmbd
 mkdir build && cd build
 cmake .. [-DENABLE_SCALAPACK_MPI=ON]
 make
+```
+Having done this you obviously cannot install the libmbd to your system path however you can install it to your conda path, which is what you wanted if you are reading the conda version of the installation instructions.
+
+```
 make install
 ```
 
